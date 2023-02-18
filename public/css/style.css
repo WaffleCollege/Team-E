@@ -59,7 +59,6 @@
 
 .sidebar-right .account{
 	display:flex;
-	
 }
 
 .sidebar-right .account p{
@@ -73,6 +72,8 @@
 	margin-right:30px;
 }
 
+/**    calendar     **/
+
 .sidebar-right #cal-heatmap{
 	margin: auto; 
 	margin-top:30px;
@@ -81,6 +82,29 @@
 
 .sidebar-right #cal-heatmap p{
 	font-size: 20px;
+}
+
+
+/** pie chart **/
+
+.sidebar-right #progress{
+	font-size: 18px;
+	margin:20px 0px 10px 20px;
+}
+
+.pie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top:30px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 120px;
+	height: 120px;
+	font-size: 26px;
+	font-weight: 700;
+	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(#d5525f 0% 60%, #d9d9d9 60% 100%);
+	border-radius: 50%;
 }
 
 /*---------------------------------
