@@ -3,17 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <!-- Bootstrap CSS -->
+    
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     
+    <!-- Heatmap -->
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+
     <!--My CSS-->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+    
     <!-- My JavaScript-->
     
     <!-- Font family -->
@@ -21,33 +25,33 @@
   <body>
     <div class="app">
       <div class="home">
-
+        
         <!-- SIDEBAR-LEFT -->
         <div class="sidebar-left">
           <h1>title</h1>
-              <ul>
-                <li>
-                  <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
-                    <i class="bi bi-columns-gap"></i>
-                    Dashboard
-                  </button>
-                </li>
-                <li>
-                  <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
-                    <i class="bi bi-book"></i>
-                    Courses
-                  </button>
-                </li>
-                  <li>
-                    <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
-                    <i class="bi bi-star"></i>
-                    Favorite
-                  </button> 
-                </li>
-              </ul>
+          <ul>
+            <li>
+              <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
+                <i class="bi bi-columns-gap"></i>
+                Dashboard
+              </button>
+            </li>
+            <li>
+              <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
+                <i class="bi bi-book"></i>
+                Courses
+              </button>
+            </li>
+            <li>
+              <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
+                <i class="bi bi-star"></i>
+                Favorite
+              </button> 
+            </li>
+          </ul>
         </div>
         <!-- // SIDEBAR-LEFT -->
-            
+        
         <!-- MAIN -->
         <div class="main">
           <div class="content">
@@ -60,18 +64,11 @@
         <!-- SIDEBAR-RIGHT -->
         <div class="sidebar-right">
           <div class="account">
-            <p>アカウント</p>
+            <p>Username</p>
             <i class="bi bi-person-circle"></i>
           </div>
-          <div class="wrapper">
-            <h1 id="header"></h1>
-            <div id="next-prev-button">
-              <button id="prev" onclick="prev()">‹</button>
-              <button id="next" onclick="next()">›</button>
-            </div>
-            <div id="calendar"></div>
-          </div>
-          <script src="/js/calendar.js"></script>
+          <div id="cal-heatmap"></div>
+          <script type="text/javascript" src="/js/calender.js"></script> <!--これ、headに書くと機能しない-->
           
         </div>
         <!-- // SIDEBAR-RIGHT -->
