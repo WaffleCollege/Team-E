@@ -6,7 +6,6 @@
 
 .app {
 	width: 100vw;
-	height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -112,6 +111,7 @@
 ---------------------------------*/
 
 .main {
+	width:300px;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -125,7 +125,45 @@
 
 .content img{
 	width:700px;
-	height:350px;
+	height:420px;
 	display:block;
 	margin:auto;
+	border-radius: 80px;
+	padding-top: 30px;
 }
+
+/*追加*/
+.content p {
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 30px;
+	padding-left: 20px;
+	
+}
+
+.content-cardbox {
+	color: white;
+	padding: 10px;
+	height: 300px;
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: space-around;
+	margin: 20px;
+	
+}
+
+.content-titletext {
+	background: #ffafaf;
+	color: black;
+	width: 350px;
+	height: 200px;
+	padding: 30px;
+	margin: 10px;
+	border-radius: 50px;
+	font-size: 20px;
+    text-align: center;
+	align-content: stretch;
+	
+}
+
+
