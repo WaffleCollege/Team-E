@@ -6,7 +6,6 @@
 
 .app {
 	width: 100vw;
-	height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -21,25 +20,98 @@
 	flex-grow: 1;
 }
 
-/**  sidebar  **/
+/*---------------------------------
+　SIDEBAR-LEFT
+---------------------------------*/
 
 .sidebar-left {
 	width: 300px;
 	background-color: whitesmoke;
 	box-sizing: border-box;
-	border-right: 5px solid;
 }
+.sidebar-left h1{
+	text-align:center;
+	border:1px solid;
+	padding:10px;
+	margin:30px;
+	margin-bottom:50px;
+}
+.sidebar-left li{
+	list-style: none;
+	margin:25px;
+}
+
+.sidebar-left button{
+	font-size:25px;
+	background-color: whitesmoke;
+}
+
+/*---------------------------------
+　SIDEBAR-RIGHT
+---------------------------------*/
 
 .sidebar-right {
 	width:400px;
 	background-color: whitesmoke;
 	box-sizing: border-box;
-	border-left: 5px solid ;
 }
 
-/**  main  **/
+.sidebar-right .account{
+	display:flex;
+}
+
+.sidebar-right .account p{
+	font-size:25px;
+	margin:45px 0 0 180px;
+}
+
+.sidebar-right i{
+	font-size:60px;
+	margin: 10px 0 0 auto;
+	margin-right:30px;
+}
+
+/**    calendar     **/
+
+.sidebar-right #cal-heatmap{
+	margin: auto; 
+	margin-top:30px;
+	width: 30%;
+}
+
+.sidebar-right #cal-heatmap p{
+	font-size: 20px;
+}
+
+
+/** pie chart **/
+
+.sidebar-right #progress{
+	font-size: 18px;
+	margin:20px 0px 10px 20px;
+}
+
+.pie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top:30px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 120px;
+	height: 120px;
+	font-size: 26px;
+	font-weight: 700;
+	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(#d5525f 0% 60%, #d9d9d9 60% 100%);
+	border-radius: 50%;
+}
+
+/*---------------------------------
+　MAIN
+---------------------------------*/
 
 .main {
+	width:300px;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -53,7 +125,45 @@
 
 .content img{
 	width:700px;
-	height:350px;
+	height:420px;
 	display:block;
 	margin:auto;
+	border-radius: 80px;
+	padding-top: 30px;
 }
+
+/*追加*/
+.content p {
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 30px;
+	padding-left: 20px;
+	
+}
+
+.content-cardbox {
+	color: white;
+	padding: 10px;
+	height: 300px;
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: space-around;
+	margin: 20px;
+	
+}
+
+.content-titletext {
+	background: #ffafaf;
+	color: black;
+	width: 350px;
+	height: 200px;
+	padding: 30px;
+	margin: 10px;
+	border-radius: 50px;
+	font-size: 20px;
+    text-align: center;
+	align-content: stretch;
+	
+}
+
+
