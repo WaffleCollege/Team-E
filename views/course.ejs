@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>Test</title>
     
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -14,9 +14,6 @@
     <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
-    <!-- <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/cal-heatmap@4.0.0-beta.9/dist/cal-heatmap.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/cal-heatmap@4.0.0-beta.9/dist/cal-heatmap.css"></script>  -->
 
     <!--My CSS-->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -32,28 +29,24 @@
   <body>
     <div class="app">
       <div class="common">
-        
         <!-- SIDEBAR-LEFT -->
         <div class="sidebar-left">
-          <div class="moneyvate">   
-            <h1>moneyvate</h1>
-        
-          </div>
+          <h1>moneyvate</h1>
           <ul>
             <li>
-              <button onclick="location.href='#'" type="button"class="btn btn-light">
+              <button onclick="location.href='/'" type="button" class="btn btn-light  btn-lg">
                 <i class="bi bi-columns-gap"></i>
                 Dashboard
               </button>
             </li>
             <li>
-              <button onclick="location.href='#'" type="button"class="btn btn-light">
+              <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
                 <i class="bi bi-book"></i>
                 Courses
               </button>
             </li>
             <li>
-              <button onclick="location.href='#'" type="button"class="btn btn-light">
+              <button onclick="location.href='#'" type="button" class="btn btn-light  btn-lg">
                 <i class="bi bi-star"></i>
                 Favorite
               </button> 
@@ -61,54 +54,28 @@
           </ul>
         </div>
         <!-- // SIDEBAR-LEFT -->
-        
-        <!-- MAIN -->
-        <div class="main">
-        <div class="content">
-        <img src="/images/Let's get start!.jpg" class="image">
-        <div class="content-card">
-          <div class="content-cardbox">
-                  <a href="/course" class="content-titletext">No.1</a>
-                  <a href="#" class="content-titletext">No.2</a>
-                  <a href="#" class="content-titletext">No.3</a>
-                  <a href="#" class="content-titletext">No.4</a>
-        </div>
-          <!--ここまで追加した-->
-  
-              </div>
+
+        <!-- ROADMAP -->
+        <div class="roadmap">
+          <h1>投資コース</h1>
+          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum odio in elit tincidunt tincidunt nec at lacus. Integer vestibulum et justo id bibendum. Fusce ut erat eget orci auctor porttitor ac vitae dui. Donec ullamcorper dictum lacus, eget ullamcorper risus aliquam non. Cras faucibus efficitur justo temp</h5>
+          
+          <div class="step-bar">
+            <div class="step-content1">
+            <div class="step-label1">STEP</div>
+            <div class="step-title1">タイトル</div>
+            <div class="step-body1" style="border-bottom: dotted 2px #ddd;">本文</div>
             </div>
-        </div>
-        <!-- // MAIN -->
-
-        <!-- SIDEBAR-RIGHT -->
-        <div class="sidebar-right">
-          
-          <div class="account">
-            <p>Username</p>
-            <i class="bi bi-person-circle"></i>
+            <div class="step-content1">
+            <div class="step-label1">STEP</div>
+            <div class="step-title1">タイトル</div>
+            <div class="step-body1" style="border-bottom: dotted 2px #ddd;">本文</div>
+            </div>
+            <div class="step-content1">
+            <div class="step-label1">Finish</div>
           </div>
-          
-          <div id="cal-heatmap"></div>
-          <script type="text/javascript" src="/js/calender.js"></script> <!--これ、headに書くと機能しない-->
-          
-
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">No.1</h5>
-                <div class="pie"><span>60%</span></div>
-              </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">No.2</h5>
-                <div class="pie"><span>60%</span></div>
-              </div>
-            </a>
-          </div>
-
         </div>
-        <!-- // SIDEBAR-RIGHT -->
+        <!-- // ROADMAP -->
       </div>
     </div>
   </body>
