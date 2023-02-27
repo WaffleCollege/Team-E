@@ -5,19 +5,21 @@
 
 
 .app {
-	width: 100vw;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
 /*---------------------------------
-　HOME
+　COMMON
 ---------------------------------*/
 
-.home {
+.common {
 	display: flex;
 	flex-direction: row;
 	flex-grow: 1;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 /*---------------------------------
@@ -26,38 +28,48 @@
 
 .sidebar-left {
 	width: 300px;
-	background-color: whitesmoke;
 	box-sizing: border-box;
+	border-right:2px solid #c1c1c1;
+	background-color: whitesmoke;
+	color:#4072B3;
 }
 .sidebar-left h1{
-	text-align:center;
-	border:1px solid;
-	padding:10px;
-	margin:30px;
-	margin-bottom:50px;
+	text-align: center;
+	font-weight:900;
+	margin:50px 0px;
+	font-size:35px;
+	
 }
+
 .sidebar-left li{
 	list-style: none;
-	margin:25px;
+	margin-top:20px;
 }
 
 .sidebar-left button{
 	font-size:25px;
+	color:#4072B3;
+	text-align:left;
 	background-color: whitesmoke;
+	padding:10px 30px;
+	font-weight: 500;
+	border:none;
 }
 
+
 /*---------------------------------
-　SIDEBAR-RIGHT
+　[home] SIDEBAR-RIGHT
 ---------------------------------*/
 
 .sidebar-right {
 	width:400px;
-	background-color: whitesmoke;
 	box-sizing: border-box;
+	border-left:2px solid #c1c1c1;
 }
 
 .sidebar-right .account{
 	display:flex;
+	font-weight:500;
 }
 
 .sidebar-right .account p{
@@ -74,40 +86,33 @@
 /**    calendar     **/
 
 .sidebar-right #cal-heatmap{
-	margin: auto; 
-	margin-top:30px;
-	width: 30%;
-}
-
-.sidebar-right #cal-heatmap p{
-	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:30px;
 }
 
 
 /** pie chart **/
-
-.sidebar-right #progress{
-	font-size: 18px;
-	margin:20px 0px 10px 20px;
-}
-
 .pie {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top:30px;
-	margin-right: auto;
-	margin-left: auto;
-	width: 120px;
-	height: 120px;
-	font-size: 26px;
-	font-weight: 700;
+	margin-right:20px;
+	width: 100px;
+	height: 100px;
+	font-size: 24px;
+	font-weight: 500;
 	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(#d5525f 0% 60%, #d9d9d9 60% 100%);
 	border-radius: 50%;
 }
 
+.sidebar-right .list-group h5{
+	padding:35px;
+}
+
 /*---------------------------------
-　MAIN
+　[home] MAIN
 ---------------------------------*/
 
 .main {
@@ -124,21 +129,12 @@
 }
 
 .content img{
-	width:700px;
-	height:420px;
+	width:600px;
+	height:350px;
 	display:block;
 	margin:auto;
 	border-radius: 80px;
 	padding-top: 30px;
-}
-
-/*追加*/
-.content p {
-	font-size: 30px;
-	font-weight: bold;
-	padding-top: 30px;
-	padding-left: 20px;
-	
 }
 
 .content-cardbox {
@@ -153,17 +149,87 @@
 }
 
 .content-titletext {
-	background: #ffafaf;
+	border:2px solid #ffafaf;
+	text-decoration: none;
 	color: black;
-	width: 350px;
-	height: 200px;
-	padding: 30px;
+	width: 330px;
+	height: 130px;
 	margin: 10px;
-	border-radius: 50px;
+	border-radius: 20px;
 	font-size: 20px;
     text-align: center;
-	align-content: stretch;
-	
 }
 
 
+/*---------------------------------
+　[course] ROADMAP
+---------------------------------*/
+
+.roadmap{
+	width:1000px;
+	margin-left:50px;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	color:#545454;
+}
+
+.roadmap h1{
+	margin:50px 0 30px 0;
+	font-weight:700;
+	font-size:50px;
+}
+
+/*---------------------------------
+　[course] STEP-BAR
+---------------------------------*/
+.step-bar {
+	counter-reset:count;
+	margin: 2em 0;
+	position: relative;
+}
+.step-content1 {
+	padding: 0 0 1.3em 2em;
+	margin: 0;
+	position: relative;
+}
+.step-content1::before {
+	content: "";
+	display: block;
+	width: 13px;
+	height: 13px;
+	background: #4072B3;
+	border: solid 3px #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	box-shadow: 0 0 0 2px #4072B3;
+}
+.step-content1::after {
+	content: "";
+	display: block;
+	height: calc(100% - 35px);
+	border-left: dotted 5px #768888;
+	position: absolute;
+	top: 30px;
+	left: 10px;
+}
+.step-title1 {
+	font-weight: bold;
+	font-size: 120%;
+}
+.step-label1 {
+	color: #768888;
+	font-weight: bold;
+}
+.step-label1::after {
+	position: relative;
+	left: .3em;
+}
+.step-body1 {
+	margin-top: .5em;
+	padding: 0 0 1em;
+	border-bottom: dotted 2px #ddd;
+}
+.step-wrap1 > :last-of-type::after {
+	display: none;
+}

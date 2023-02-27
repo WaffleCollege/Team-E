@@ -1,3 +1,22 @@
+// const cal = new CalHeatMap();
+// const data = {
+//   "1676693425.0": 1,
+//   "1675829425.0": 2,
+// };
+// const config = {
+//   data: data,
+// 	start: new Date(2023, 1),
+// 	id : "graph_k",
+// 	domain : "month",
+// 	subDomain : "x_day",
+// 	range : 1,
+// 	cellSize: 30,
+// 	weekStartOnMonday: 0,
+// };
+// cal.init(config);
+
+
+
 const cal = new CalHeatMap();
 const data = {
   "1676693425.0": 1,
@@ -5,8 +24,7 @@ const data = {
 };
 const config = {
   domain: "month",
-  subDomain: "day",
-  verticalOrientation: true,
+  subDomain: "x_day",
   range: 1,
   tooltip: true,
   start: new Date(2023, 1),
@@ -18,63 +36,37 @@ const config = {
 cal.init(config);
 
 
+
 // const cal = new CalHeatmap();
-// cal.paint(
-//   {
-//     data: {
+
+// const data = {
 //       source: '/data/seattle-weather.csv',
 //       type: 'csv',
 //       x: 'date',
 //       y: 'temp_min',
 //       groupY: 'min',
-//     },
-//     verticalOrientation: true,
-//     range: 5,
-//     itemSelector: '#cal-heatmap',
-//     date: { start: new Date('2012-01-01') },
-//     scale: { color: { type: 'diverging', scheme: 'PRGn', domain: [-10, 15] } },
-//     domain: {
-//       type: 'month',
-//       padding: [10, 10, 10, 10],
-//       label: { position: 'top' },
-//     },
-//     subDomain: { type: 'x_day', radius: 2, width: 15, height: 15, label: 'D' },
+// };
+// const config = {
+//   verticalOrientation: true,
+//   range: 1,
+//   itemSelector: '#cal-heatmap',
+//   date: { start: new Date('2012-01-01') },
+//   scale: { color: { type: 'diverging', scheme: 'PRGn', domain: [-10, 15] } },
+//   domain: {
+//     type: 'month',
+//     padding: [10, 10, 10, 10],
+//     label: { position: 'top' },
 //   },
-//   [
-//     [
-//       Tooltip,
-//       {
-//         text: function (date, value, dayjsDate) {
-//           return (
-//             (value ? value + '°C' : 'No data') + ' on ' + dayjsDate.format('LL')
-//           );
-//         },
-//       },
-//     ],
-//   ]
-// );
-// render(
-//   <div>
-//     <div id="cal-heatmap" className="margin-bottom--md"></div>
-//     <a
-//       className="button button--sm button--secondary"
-//       href="#"
-//       onClick={e => {
-//         e.preventDefault();
-//         cal.previous();
-//       }}
-//     >
-//       ← Previous
-//     </a>
-//     <a
-//       className="button button--sm button--secondary margin-left--xs"
-//       href="#"
-//       onClick={e => {
-//         e.preventDefault();
-//         cal.next();
-//       }}
-//     >
-//       Next →
-//     </a>
-//   </div>
-// );
+//   subDomain: { type: 'x_day', radius: 2, width: 15, height: 15, label: 'D' },
+//   Tooltip:
+//   {
+//     text: function (date, value, dayjsDate) {
+//       return (
+//         (value ? value + '°C' : 'No data') + ' on ' + dayjsDate.format('LL')
+//       );
+//     },
+//   },
+// }
+// cal.init(config);
+
+
