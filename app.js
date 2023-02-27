@@ -11,6 +11,13 @@ app.get('/course', (req, res) => {
 	res.render('course.ejs');
 });
 
+app.get('/study', (req, res) => {
+	res.render('study.ejs');
+});
+
+
+
 app.listen(port, () => {
 	console.log(`listening at http://localhost:${port}`);
 });
+
