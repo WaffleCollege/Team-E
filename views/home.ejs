@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Heatmap -->
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+    <!-- <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/cal-heatmap@4.0.0-beta.9/dist/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/cal-heatmap@4.0.0-beta.9/dist/cal-heatmap.css"></script>  -->
+
+    <!--My CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    <!-- My JavaScript-->
+    
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  </head>
+  <body>
+    <div class="app">
+      <div class="common">
+        
+        <!-- SIDEBAR-LEFT -->
+        <div class="sidebar-left">
+          <div class="moneyvate">   
+            <h1>moneyvate</h1>
+        
+          </div>
+          <ul>
+            <li>
+              <button onclick="location.href='#'" type="button"class="btn btn-light">
+                <i class="bi bi-columns-gap"></i>
+                Dashboard
+              </button>
+            </li>
+            <li>
+              <button onclick="location.href='#'" type="button"class="btn btn-light">
+                <i class="bi bi-book"></i>
+                Courses
+              </button>
+            </li>
+            <li>
+              <button onclick="location.href='#'" type="button"class="btn btn-light">
+                <i class="bi bi-star"></i>
+                Favorite
+              </button> 
+            </li>
+          </ul>
+        </div>
+        <!-- // SIDEBAR-LEFT -->
+        
+        <!-- MAIN -->
+        <div class="main">
+        <div class="content">
+        <img src="/images/Let's get start!.jpg" class="image">
+        <div class="content-card">
+          <div class="content-cardbox">
+                  <a href="/course" class="content-titletext">No.1</a>
+                  <a href="/study" class="content-titletext">No.2</a>
+                  <a href="#" class="content-titletext">No.3</a>
+                  <a href="#" class="content-titletext">No.4</a>
+        </div>
+          <!--ここまで追加した-->
+  
+              </div>
+            </div>
+        </div>
+        <!-- // MAIN -->
+
+        <!-- SIDEBAR-RIGHT -->
+        <div class="sidebar-right">
+          
+          <div class="account">
+            <p>Username</p>
+            <div class="w3-dropdown-hover">
+              <i class="bi bi-person-circle"></i>
+              <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a href="#" class="w3-bar-item w3-button" id="logout">Logout</a>
+              </div>
+            </div>
+          </div>
+          
+          <div id="cal-heatmap"></div>
+          <script type="text/javascript" src="/js/calender.js"></script> <!--これ、headに書くと機能しない-->
+          
+
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">No.1</h5>
+                <div class="pie"><span>60%</span></div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">No.2</h5>
+                <div class="pie"><span>60%</span></div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+        <!-- // SIDEBAR-RIGHT -->
+
+        <!-- Firebase Javascript-->
+        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+        <script type="module" src="/js/logout.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

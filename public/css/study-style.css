@@ -1,0 +1,196 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.app {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+}
+
+/*---------------------------------
+　HOME
+---------------------------------*/
+
+.home {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+}
+
+/*---------------------------------
+　SIDEBAR-LEFT
+---------------------------------*/
+
+.sidebar-left {
+	width: 300px;
+	box-sizing: border-box;
+	border-right:2px solid #c1c1c1;
+	background-color: whitesmoke;
+	color:#4072B3;
+}
+.sidebar-left h1{
+	text-align: center;
+	font-weight:900;
+	margin:50px 0px;
+	font-size:35px;
+	
+}
+
+.sidebar-left li{
+	list-style: none;
+	margin-top:20px;
+}
+
+.sidebar-left button{
+	font-size:25px;
+	color:#4072B3;
+	text-align:left;
+	background-color: whitesmoke;
+	padding:10px 30px;
+	font-weight: 500;
+	border:none;
+}
+
+/*---------------------------------
+　MAIN
+---------------------------------*/
+
+.main {
+  display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+  background-color: whitesmoke;
+  padding: 50px 50px;
+}
+
+.main img {
+  width:750px;
+	height:420px;
+	display:block;
+	margin-right:auto;
+	border-radius: 80px;
+	padding-top: 30px;
+}
+
+/*----------------------------------
+  main-contents
+-----------------------------------*/
+
+.contents-title {
+	margin: 0px 0px 15px 30px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight:700;
+	font-size:50px;
+  color:#545454;
+}
+
+.main-contents h5 {
+  margin: 75px 0px 30px 30px;
+  width: fit-content;
+  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: white;/*背景色*/
+  border-left: solid 5px #6088C6;/*左線*/
+  border-bottom: solid 3px #d7d7d7;/*下線*/
+}
+
+.main-contents p {
+  width: 950px;
+  padding-left: 30px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.main-contents mark {
+  background: linear-gradient(transparent 40%, #FFFF33);
+}
+
+.kind {
+  font-size: 18px;
+  padding-left: 35px;
+  padding-bottom: 15px;
+}
+
+  
+/*----------------------------------
+  目次
+-----------------------------------*/
+
+.contents-table ul {
+    border: solid 2px #EB8686;
+    border-radius: 5px;
+    padding: 0.5em 1em 0.5em 2.3em;
+    position: relative;
+    margin: 0px 100px 0px 60px;
+}
+  
+.contents-table ul li {
+    line-height: 1.5;
+    list-style-type: none!important;
+}
+  
+.contents-table ul li:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\F231";/*アイコンの種類*/
+    position: absolute;
+    left : 1em;/*左端からのアイコンまでの距離*/
+    color: #EB8686;/*アイコン色*/
+}
+
+.headline {
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 40px;
+}
+
+.contents {
+    padding-bottom: 30px;
+}
+  
+
+/*---------------------------------
+   footer
+---------------------------------*/
+
+.footer h3 {
+  margin: 10px 0px 0px 40px;
+  font-size: 25px;
+}
+
+.footer {
+  list-style: none;
+  margin: 0 0 -8px;
+  overflow: hidden;
+  padding: 0;
+}
+
+
+.sns-share {
+  background-color: var(--cocoon-twitter-color);
+  flex-direction: column;
+  display: flex;
+  line-height: 16px;
+}
+
+.sns-share-buttons a {
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.sns-share a {
+  width: 32%;
+}
+
+.sns-buttons a {
+  display: block;
+  background-color: var(--cocoon-text-color);
+  text-align: center;
+  color: var(--cocoon-white-color);
+  text-decoration: none;
+  border-radius: var(--cocoon-basic-border-radius);
+  height: 45px;
+}
+

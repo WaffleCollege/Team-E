@@ -1,0 +1,246 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.app {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/*---------------------------------
+　COMMON
+---------------------------------*/
+
+.common {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*---------------------------------
+　SIDEBAR-LEFT
+---------------------------------*/
+
+.sidebar-left {
+	width: 300px;
+	box-sizing: border-box;
+	border-right:2px solid #c1c1c1;
+	background-color: whitesmoke;
+	color:#4072B3;
+}
+.sidebar-left h1{
+	text-align: center;
+	font-weight:900;
+	margin:50px 0px;
+	font-size:35px;
+	
+}
+
+.sidebar-left li{
+	list-style: none;
+	margin-top:20px;
+}
+
+.sidebar-left button{
+	font-size:25px;
+	color:#4072B3;
+	text-align:left;
+	background-color: whitesmoke;
+	padding:10px 30px;
+	font-weight: 500;
+	border:none;
+}
+
+
+/*---------------------------------
+　[home] SIDEBAR-RIGHT
+---------------------------------*/
+
+.sidebar-right {
+	width:400px;
+	box-sizing: border-box;
+	border-left:2px solid #c1c1c1;
+}
+
+.sidebar-right .account{
+	display:flex;
+	font-weight:500;
+}
+
+.sidebar-right .account p{
+	font-size:25px;
+	margin:45px 0 0 180px;
+}
+
+.sidebar-right i{
+	font-size:60px;
+	margin: 10px 0 0 auto;
+	margin-right:30px;
+}
+
+/**    calendar     **/
+
+.sidebar-right #cal-heatmap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:30px;
+}
+
+
+/** pie chart **/
+.pie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right:20px;
+	width: 100px;
+	height: 100px;
+	font-size: 24px;
+	font-weight: 500;
+	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(#d5525f 0% 60%, #d9d9d9 60% 100%);
+	border-radius: 50%;
+}
+
+.sidebar-right .list-group h5{
+	padding:35px;
+}
+
+/*---------------------------------
+　[home] MAIN
+---------------------------------*/
+
+.main {
+	width:300px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.content {
+	flex-grow: 1;
+	box-sizing: border-box;
+}
+
+.content img{
+	width:600px;
+	height:350px;
+	display:block;
+	margin:auto;
+	border-radius: 80px;
+	padding-top: 30px;
+}
+
+.main p {
+	margin: 10px 100px 60px 60px;
+}
+
+.content p {
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 30px;
+	padding-left: 20px;
+	
+}
+
+.content-cardbox {
+	color: white;
+	padding: 10px;
+	height: 300px;
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: space-around;
+	margin: 20px;
+	
+}
+
+.content-titletext {
+	background-color: #EB8686;
+	color: black;
+	width: 270px;
+	height: 160px;
+	padding: 30px;
+	margin: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+    text-align: center;
+}
+
+
+/*---------------------------------
+　[course] ROADMAP
+---------------------------------*/
+
+.roadmap{
+	width:1000px;
+	margin-left:50px;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	color:#545454;
+}
+
+.roadmap h1{
+	margin:50px 0 30px 0;
+	font-weight:700;
+	font-size:50px;
+}
+
+/*---------------------------------
+　[course] STEP-BAR
+---------------------------------*/
+.step-bar {
+	counter-reset:count;
+	margin: 2em 0;
+	position: relative;
+}
+.step-content1 {
+	padding: 0 0 1.3em 2em;
+	margin: 0;
+	position: relative;
+}
+.step-content1::before {
+	content: "";
+	display: block;
+	width: 13px;
+	height: 13px;
+	background: #4072B3;
+	border: solid 3px #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	box-shadow: 0 0 0 2px #4072B3;
+}
+.step-content1::after {
+	content: "";
+	display: block;
+	height: calc(100% - 35px);
+	border-left: dotted 5px #768888;
+	position: absolute;
+	top: 30px;
+	left: 10px;
+}
+.step-title1 {
+	font-weight: bold;
+	font-size: 120%;
+}
+.step-label1 {
+	color: #768888;
+	font-weight: bold;
+}
+.step-label1::after {
+	position: relative;
+	left: .3em;
+}
+.step-body1 {
+	margin-top: .5em;
+	padding: 0 0 1em;
+	border-bottom: dotted 2px #ddd;
+}
+.step-wrap1 > :last-of-type::after {
+	display: none;
+}
