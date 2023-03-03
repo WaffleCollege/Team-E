@@ -26,24 +26,32 @@
 
 .sidebar-left {
 	width: 300px;
-	background-color: #AEC4E5;
 	box-sizing: border-box;
+	border-right:2px solid #c1c1c1;
+	background-color: whitesmoke;
+	color:#4072B3;
 }
 .sidebar-left h1{
-	text-align:center;
-	border:1px solid;
-	padding:10px;
-	margin:30px;
-	margin-bottom:50px;
+	text-align: center;
+	font-weight:900;
+	margin:50px 0px;
+	font-size:35px;
+	
 }
+
 .sidebar-left li{
 	list-style: none;
-	margin:25px;
+	margin-top:20px;
 }
 
 .sidebar-left button{
 	font-size:25px;
-	background-color: #6088C6;
+	color:#4072B3;
+	text-align:left;
+	background-color: whitesmoke;
+	padding:10px 30px;
+	font-weight: 500;
+	border:none;
 }
 
 /*---------------------------------
@@ -51,99 +59,65 @@
 ---------------------------------*/
 
 .main {
-	width:300px;
-	display: flex;
+  display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-    background-color: whitesmoke;
+  background-color: whitesmoke;
+  padding: 50px 50px;
 }
 
-/*----------------------------------
-  main-header
------------------------------------*/
-
-.main-header ul {
-    list-style: none;
-}
-
-.main-header li {
-    float: left;
-    padding: 10px 10px;
-
-}
-
-.main-header a {
-    text-decoration: none;
+.main img {
+  width:750px;
+	height:420px;
+	display:block;
+	margin-right:auto;
+	border-radius: 80px;
+	padding-top: 30px;
 }
 
 /*----------------------------------
   main-contents
 -----------------------------------*/
 
-.content {
-	flex-grow: 1;
-	background-color: whitesmoke;
-	box-sizing: border-box;
+.contents-title {
+	margin: 0px 0px 15px 30px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight:700;
+	font-size:50px;
+  color:#545454;
 }
 
-.content img{
-	width:700px;
-	height:420px;
-	display:block;
-	margin:auto;
-	border-radius: 80px;
-	padding-top: 30px;
+.main-contents h5 {
+  margin: 75px 0px 30px 30px;
+  width: fit-content;
+  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: white;/*背景色*/
+  border-left: solid 5px #6088C6;/*左線*/
+  border-bottom: solid 3px #d7d7d7;/*下線*/
 }
 
-.main h1 {
-    padding: 15px 0px 8px 30px;
-  }
-  
-.main p {
-    margin: 10px 80px 10px 40px;
-  }
-  
-  /*
-  .contents-table ul, ol {
-    padding: 0;
-  }
-  
-  .contents-table ul li {
-    position: relative;
-    list-style-type: none!important;/*ポチ消す*/
-  /*
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    margin-bottom: 5px;
-    line-height: 1.5;
-    background: #dbebf8;
-    vertical-align: middle;
-    color: #505050;
-    border-radius: 15px 0px 0px 15px;/*左側の角丸く*/
-  /*
-  }
-  
-  .contents-table ul li:before{ 
-    display:inline-block; 
-    vertical-align: middle;
-    /*以下白丸つくる*/
-  /*
-    content:'';
-    width:1em;
-    height: 1em;
-    background: #fff;
-    border-radius: 50%;
-    margin-right: 8px;
-  }*/
-  
+.main-contents p {
+  width: 950px;
+  padding-left: 30px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.main-contents mark {
+  background: linear-gradient(transparent 40%, #FFFF33);
+}
+
+.kind {
+  font-size: 18px;
+  padding-left: 35px;
+  padding-bottom: 15px;
+}
+
   
 /*----------------------------------
   目次
 -----------------------------------*/
-
-.contents-table p {
-    font-weight: bold;
-    padding-top: 40px;
-}
 
 .contents-table ul {
     border: solid 2px #EB8686;
@@ -173,7 +147,7 @@
 }
 
 .contents {
-    height: 200px;
+    padding-bottom: 30px;
 }
   
 
@@ -219,3 +193,4 @@
   border-radius: var(--cocoon-basic-border-radius);
   height: 45px;
 }
+
