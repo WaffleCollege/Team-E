@@ -87,7 +87,7 @@
   color:#545454;
 }
 
-.main-contents h5 {
+.main-contents h4 {
   margin: 75px 0px 30px 30px;
   width: fit-content;
   padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
@@ -149,11 +149,78 @@
 .contents {
     padding-bottom: 30px;
 }
-  
 
-/*---------------------------------
-   footer
+.checkbox-style label, input [type="checkbox"] {
+  line-height: 2;
+  font-size: 17px;
+  padding-left: 10px; 
+  position: relative;
+}
+
+input [type="checkbox"] {
+  transform: scale(2);
+}
+
+.checkbox-style {
+  margin-left: 30px;
+}
+
+.iframely-responsive {
+  width: 200px;
+}
+
+
+/*--------------------------------
+  シミュレーション紹介
 ---------------------------------*/
+.lkc-internal-wrap {
+  background-color: white;
+  width: 900px;
+  height: 300px;
+  margin-left: 30px;
+}
+
+.lkc-thumbnail img {
+  width: 250px;
+  height: 200px;
+}
+
+.lkc-contents .lkc-title-text {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.lkc-contents .lck-url {
+  margin: 5px 0 0 0;
+  font-size: 15px;
+}
+
+/*-------------------------------
+   sns-share-button
+---------------------------------*/
+
+.sns-circle {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #55acee;
+}
+
+.sns-circle a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  text-indent: -999px;
+  color: #fff;
+}
 
 .footer h3 {
   margin: 10px 0px 0px 40px;
