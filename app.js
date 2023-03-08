@@ -15,6 +15,10 @@ app.get('/study', (req, res) => {
 	res.render('study.ejs');
 });
 
+app.get('/studypage', (req, res) => {
+	res.render('studypage.ejs');
+});
+
 
 
 app.listen(port, () => {
