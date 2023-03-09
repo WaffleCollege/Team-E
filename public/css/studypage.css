@@ -92,7 +92,7 @@
 }
 
 .main-contents h4 {
-    margin: 75px 0px 30px 30px;
+    margin: 90px 0px 30px 30px;
     width: fit-content;
     padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
     color: #494949;/*文字色*/
@@ -100,7 +100,22 @@
     border-left: solid 5px #6088C6;/*左線*/
     border-bottom: solid 3px #d7d7d7;/*下線*/
     font-family: "游ゴシック体","YuGothic";
-  }
+}
+
+.contents-table li {
+    font-size: 17px;
+    line-height: 1.8;
+    font-family: "游ゴシック体","YuGothic";
+    padding: 0.3em 0; /*前後の文との余白*/
+}
+
+.contents-table ul {
+    background: #fcfcfc;/*背景色*/
+    padding: 0.5em 0.5em 0.5em 2em;/*ボックス内の余白*/
+    border: solid 3px gray;/*線の種類 太さ 色*/
+    width: 700px;
+    margin-left: 50px;
+}
 
 .main-contents p {
     margin-left: 60px;
@@ -116,12 +131,18 @@
   
 .kind {
     font-size: 18px;
-    padding: 20px 0 10px 35px;
-    padding-left: 35px;
-    padding-bottom: 15px;
+    padding: 20px 0 15px 35px;
     font-family: "游ゴシック体","YuGothic";
+    margin-top: 30px;
 }
 
+/*---------------------------------
+　contents-table
+---------------------------------*/
+.main-contents li {
+    list-style: none;
+    padding-left: 30px;
+}
 
 /*---------------------------------
 　linkcard
@@ -165,7 +186,7 @@ h5.linkcard-title {
     background-color: white;
     box-shadow: 2px 2px 5px 0 rgba(106, 106, 106, 0.5);
     height: 140px;
-    width: 900px;
+    width: 920px;
 }
 
 .flex-shrink-0.me-3 {
@@ -183,6 +204,7 @@ h5.linkcard-title {
 
 .mt-0 {
     padding-top: 20px;
+    padding-right: 10px;
     font-family: "游ゴシック体","YuGothic";
     font-weight: bold;
     font-size: 18px;
@@ -202,7 +224,7 @@ h5.linkcard-title {
 }
   
 input [type="checkbox"] {
-    transform: scale(2);
+    transform: scale(3);
 }
   
 .checkbox-style {
@@ -212,15 +234,24 @@ input [type="checkbox"] {
 
 
 
-
 /*---------------------------------
 　form
 ----------------------------------*/
 .form-link {
-    margin-left: 30px;
     width: 900px;
-    margin-bottom: 40px;
+    margin: 50px 0 40px 50px;
+    padding: 30px 30px;
+    background-color: rgba(245, 245, 245, 0.895);
 }
+
+.comment-list p {
+    
+    margin: 90px 0 40px 0px;
+    background-color: rgba(245, 245, 245, 0.895);
+    padding-left: 5px;
+    height: 200px;
+}
+
 
 /*---------------------------------
 　sns-share
@@ -232,9 +263,8 @@ input [type="checkbox"] {
 .sns-share-btn li {
     list-style: none;
     display: inline-block;
-    padding:0 8px;
+    padding:0 10px;
     margin-bottom: 30px;
-
 }
 
 .sns-link img {
@@ -242,13 +272,3 @@ input [type="checkbox"] {
     width: 50px;
     border-radius: 0;
 }
-
-
-/*
-.fa-brands.fa-twitter {
-    color: rgb(0, 170, 255);
-    height: 200px;
-    width: 200px;
-    border-radius: 0;
-}
-*/
