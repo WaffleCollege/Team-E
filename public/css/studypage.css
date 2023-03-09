@@ -92,7 +92,7 @@
 }
 
 .main-contents h4 {
-    margin: 90px 0px 30px 30px;
+    margin: 110px 0px 30px 30px;
     width: fit-content;
     padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
     color: #494949;/*文字色*/
@@ -187,6 +187,12 @@ h5.linkcard-title {
     box-shadow: 2px 2px 5px 0 rgba(106, 106, 106, 0.5);
     height: 140px;
     width: 920px;
+}
+
+.d-flex.position-relative p {
+    font-size: 14px;
+    padding-left: 0;
+    margin-left: 0;
 }
 
 .flex-shrink-0.me-3 {
