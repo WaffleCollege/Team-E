@@ -124,6 +124,7 @@
 
 .content {
 	flex-grow: 1;
+	background-color: whitesmoke;
 	box-sizing: border-box;
 }
 

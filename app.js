@@ -11,13 +11,16 @@ app.get('/', (req, res) => {
 app.get('/course', (req, res) => {
 	res.render('course.ejs');
 });
-
 app.get('/study', (req, res) => {
 	res.render('study.ejs');
 });
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
+app.get('/studypage', (req, res) => {
+	res.render('studypage.ejs');
+});
+
 
 require("dotenv").config();
 
@@ -60,6 +63,9 @@ app.post("/createUser",async (req,res)=>{
 	  res.status(500).send("Error creating user");
 	}
   });
+
+
+
 
 app.listen(port, () => {
 	console.log(`listening at http://localhost:${port}`);

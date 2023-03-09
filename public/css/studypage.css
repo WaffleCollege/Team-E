@@ -1,0 +1,254 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.app {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/*---------------------------------
+　COMMON
+---------------------------------*/
+
+.common {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*---------------------------------
+　SIDEBAR-LEFT
+---------------------------------*/
+
+.sidebar-left {
+	width: 300px;
+	box-sizing: border-box;
+	border-right:2px solid #c1c1c1;
+	background-color: whitesmoke;
+	color:#4072B3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+.sidebar-left h1{
+	text-align: center;
+	font-weight:900;
+	margin:50px 0px;
+	font-size:35px;
+	
+}
+
+.sidebar-left li{
+	list-style: none;
+	margin-top:20px;
+}
+
+.sidebar-left button{
+	font-size:25px;
+	color:#4072B3;
+	text-align:left;
+	background-color: whitesmoke;
+	padding:10px 30px;
+	font-weight: 500;
+	border:none;
+}
+
+
+
+/*---------------------------------
+　学習画面
+---------------------------------*/
+
+.main {
+	width:1000px;
+	margin-left:350px;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	color:#545454;
+    display: block;
+
+}
+
+.main h1{
+	margin:50px 0 30px 40px;
+	font-weight:700;
+	font-size:50px;
+}
+
+.main img {
+    width:800px;
+	height:420px;
+	display:block;
+	margin-right:auto;
+	border-radius: 80px;
+	padding-top: 30px;
+}
+
+.main-contents h4 {
+    margin: 75px 0px 30px 30px;
+    width: fit-content;
+    padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: white;/*背景色*/
+    border-left: solid 5px #6088C6;/*左線*/
+    border-bottom: solid 3px #d7d7d7;/*下線*/
+    font-family: "游ゴシック体","YuGothic";
+  }
+
+.main-contents p {
+    margin-left: 60px;
+    margin-right: 60px;
+    font-size: 17px;
+    line-height: 1.5;
+    font-family: "游ゴシック体","YuGothic";
+}
+  
+.main-contents mark {
+    background: linear-gradient(transparent 40%, #FFFF33);
+}
+  
+.kind {
+    font-size: 18px;
+    padding: 20px 0 10px 35px;
+    padding-left: 35px;
+    padding-bottom: 15px;
+    font-family: "游ゴシック体","YuGothic";
+}
+
+
+/*---------------------------------
+　linkcard
+---------------------------------
+.linkcard {
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.linkcard-images img {
+    width: 170px;
+    height: 150px;
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+}
+
+.linkcard-images:before {
+    padding-top: 100%;
+}
+
+.linkcard h5 {
+    display: flex;
+}
+
+h5.linkcard-title {
+    width: 300px;
+    margin-left: 20px;
+    vertical-align: middle;
+    display: flex;
+}
+*/
+
+/*---------------------------------
+　linkcard (bootstrap)
+---------------------------------*/
+.d-flex.position-relative {
+    margin-left: 30px;
+    background-color: white;
+    box-shadow: 2px 2px 5px 0 rgba(106, 106, 106, 0.5);
+    height: 140px;
+    width: 900px;
+}
+
+.flex-shrink-0.me-3 {
+    width: 140px;
+    height: 140px;
+    border-radius: 0;
+    padding: 0;
+}
+
+.stretched-link {
+    font-size: 12px;
+    font-family: "游ゴシック体","YuGothic";
+    padding-bottom: 10px;
+}
+
+.mt-0 {
+    padding-top: 20px;
+    font-family: "游ゴシック体","YuGothic";
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
+/*---------------------------------
+　checkbox
+---------------------------------*/
+
+.checkbox-style label, input [type="checkbox"] {
+    line-height: 2;
+    font-size: 17px;
+    padding-left: 10px; 
+    position: relative;
+    font-family: "游ゴシック体","YuGothic";
+}
+  
+input [type="checkbox"] {
+    transform: scale(2);
+}
+  
+.checkbox-style {
+    margin-left: 50px;
+}
+
+
+
+
+
+/*---------------------------------
+　form
+----------------------------------*/
+.form-link {
+    margin-left: 30px;
+    width: 900px;
+    margin-bottom: 40px;
+}
+
+/*---------------------------------
+　sns-share
+----------------------------------*/
+.sns-share-btn {
+    margin-left: 70px;
+}
+
+.sns-share-btn li {
+    list-style: none;
+    display: inline-block;
+    padding:0 8px;
+    margin-bottom: 30px;
+
+}
+
+.sns-link img {
+    height: 80px;
+    width: 50px;
+    border-radius: 0;
+}
+
+
+/*
+.fa-brands.fa-twitter {
+    color: rgb(0, 170, 255);
+    height: 200px;
+    width: 200px;
+    border-radius: 0;
+}
+*/
