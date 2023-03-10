@@ -203,10 +203,10 @@
               </p>
 
               <div class="form-link">
-              <form>
+              <form action="" method="POST">
                 <div class="mb-3">
                   <label for="exampleInputName1" class="form-label">Name</label>
-                  <input type="Name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp">
+                  <input type="Name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="username">
                   <div id="nameHelp" class="form-text"></div>
                 </div>
       
@@ -218,11 +218,11 @@
 
                 <div class="mb-3">
                   <label for="exampleInputUrl1" class="form-label">URL</label>
-                  <input type="url" class="form-control" id="exampleInputUrl1" placeholder="https://example.com">
+                  <input type="url" class="form-control" id="exampleInputUrl1" placeholder="https://example.com" name="link">
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="コメントを追加しよう" rows="3"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="コメントを追加しよう" rows="3" name="comment"></textarea>
                 </div>
             <!-----
                 <div class="mb-3 form-check">
@@ -235,6 +235,7 @@
               
               <div class="comment-list">
                <p>Comment</p>
+               <p><% userName %></p>
                <ul>
                   <li></li>
                </ul>
