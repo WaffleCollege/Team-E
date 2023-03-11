@@ -206,7 +206,7 @@
               <form action="" method="POST">
                 <div class="mb-3">
                   <label for="exampleInputName1" class="form-label">Name</label>
-                  <input type="Name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="username">
+                  <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="username">
                   <div id="nameHelp" class="form-text"></div>
                 </div>
       
@@ -235,9 +235,10 @@
               
               <div class="comment-list">
                <p>Comment</p>
-               <p><% userName %></p>
                <ul>
-                  <li></li>
+                <% for(let na of names){ %>
+                  <li><span><%= na %></span></li>
+                <% } %>
                </ul>
               </div>
             </div>
