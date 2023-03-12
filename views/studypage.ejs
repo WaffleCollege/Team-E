@@ -222,7 +222,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="コメントを追加しよう" rows="3" name="comment"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="サイトのおすすめポイントなど" rows="3" name="comment"></textarea>
                 </div>
             <!-----
                 <div class="mb-3 form-check">
@@ -237,9 +237,13 @@
                <p>Comment</p>
                <ul>
                 <% for(let i = 0; i < names.length; i++){ %>
-                  <li><span><%= names[i] %></span></li>
-                  <li><span><%= links[i] %></span></li>
-                  <li><span><%= comments[i] %></span></li>
+                  <div class="balloon-left-parent">
+                    <div class="balloon-left-child">
+                      <li><span>投稿者：<%= names[i] %></span></li>
+                      <li><span>役立ったサイト：<a href="<%= links[i] %>" target="_blank" rel="noopener noreferrer"><%= links[i] %></a></span></li>
+                      <li><span>コメント：<%= comments[i] %></span></li>
+                    </div>
+                  </div>
                 <% } %>
                </ul>
               </div>
