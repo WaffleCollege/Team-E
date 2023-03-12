@@ -21,8 +21,8 @@ const verifyIdToken = async (req,_,next)=>{
 		const user = await getAuth().verifyIdToken(token);
 		req.uid = user.uid;
 		req.email = user.email;
-		console.log(user.uid);
-		console.log(user.email);
+		// console.log(user.uid);
+		// console.log(user.email);
 	}
 	next();
 };

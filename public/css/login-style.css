@@ -4,7 +4,7 @@
 }
 
 body{
-	background-color: whitesmoke;
+	background-color:whitesmoke;
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -13,6 +13,7 @@ body{
 	color:#4072B3;
 	text-align:center;
 	margin-top:100px;
+	
 }
 
 .app #firebaseui-auth-container{

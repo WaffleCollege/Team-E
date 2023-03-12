@@ -1,4 +1,4 @@
-'use strict'
+
 
 //window.addEventListener('DOMContetLoaded', function() {
     //チェックボックスのHTML要素を取得
@@ -67,3 +67,34 @@ function btn() {
 
 
 //checkbox全てにチェックがついたら表示させる
+
+
+
+
+//2023/3/10 以下追加(riho)
+
+// const button = document.getElementById('course_complete');
+// const course = document.getElementById('course1')
+// button.addEventListener('click', function() {
+//     alert("yes");
+//     course.classList.toggle('active');
+// }, false);
+
+
+// const button = document.getElementById('course_complete');
+// button.addEventListener('click', function() {
+//     const xhr = new XMLHttpRequest();
+//     xhr.open('GET', '/');
+//     console.log("ok");
+//   xhr.onload = function() {
+//     const responseHTML = xhr.response;
+//     const parser = new DOMParser();
+//     const otherDoc = parser.parseFromString(responseHTML, 'text/html');
+//     const targetElement = otherDoc.getElementById('course1');
+//     targetElement.classList.add('complete');
+//   };
+//   xhr.send();
+// });
+
+
+

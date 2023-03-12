@@ -1,0 +1,155 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.app {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/*---------------------------------
+　COMMON
+---------------------------------*/
+
+.common {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*---------------------------------
+　SIDEBAR-LEFT
+---------------------------------*/
+
+.sidebar-left {
+	width: 300px;
+	box-sizing: border-box;
+	border-right:2px solid #c1c1c1;
+	background-color: #f5f5f5;
+	color:#4072B3;
+}
+
+.sidebar-left a{
+	text-decoration: none;
+	color:#4072B3;
+}
+.sidebar-left h1{
+	text-align: center;
+	font-weight:900;
+	margin:50px 0px;
+	font-size:35px;
+}
+
+.sidebar-left li{
+	list-style: none;
+	margin-top:20px;
+}
+
+.sidebar-left button{
+	font-size:25px;
+	color:#4072B3;
+	text-align:center;
+	background-color: whitesmoke;
+	padding:10px 30px;
+	font-weight: 500;
+	border:none;
+}
+
+/*---------------------------------
+　[course] ROADMAP
+---------------------------------*/
+
+.roadmap{
+	width:1000px;
+	margin-left:50px;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	color:#545454;
+}
+
+.roadmap h1{
+	margin:50px 0 30px 0;
+	font-weight:700;
+	font-size:50px;
+}
+
+/*---------------------------------
+　[course] STEP-BAR
+---------------------------------*/
+.step-bar {
+	counter-reset:count;
+	margin: 2em 0;
+	position: relative;
+}
+
+.step-content1 {
+	padding: 0 0 2em 3em;
+	margin: 0;
+	position: relative;
+}
+.step-content1::before{
+	content: "";
+	display: block;
+	width: 18px;
+	height: 18px;
+	background: #768888;
+	border: solid 3px #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	box-shadow: 0 0 0 2px #768888;
+}
+.step-content1::after {
+	content: "";
+	display: block;
+	height: calc(100% - 35px);
+	border-left: dotted 7px #768888;
+	position: absolute;
+	top: 30px;
+	left: 10px;
+}
+.step-title1 {
+	font-weight: bold;
+	font-size: 120%;
+	text-decoration: none;
+	color:#545454;
+}
+
+.step-label1 {
+	color: #768888;
+	font-weight: bold;
+}
+.step-label1::after {
+	position: relative;
+	left: .3em;
+}
+.step-body1 {
+	margin-top: .5em;
+	padding: 0 0 1em;
+	border-bottom: dotted 2px #ddd;
+}
+.step-body1 a{
+	color:#545454;
+}
+.step-wrap1 > :last-of-type::after {
+	display: none;
+}
+
+.step-content1.active::before,
+.step-content1.complete::before{
+	background: #4072B3;
+	box-shadow: 0 0 0 2px #4072B3;
+}
+
+.step-content1.complete::after{
+	border-left:dotted 7px #4072B3;
+}
+
+.step-content1 #finish::after{
+	border-left:none;
+}
