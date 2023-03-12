@@ -236,14 +236,10 @@
               <div class="comment-list">
                <p>Comment</p>
                <ul>
-                <% for(let na of names){ %>
-                  <li><span><%= na %></span></li>
-                <% } %>
-                <% for(let l of links){ %>
-                  <li><span><%= l %></span></li>
-                <% } %>
-                <% for(let c of comments){ %>
-                  <li><span><%= c %></span></li>
+                <% for(let i = 0; i < names.length; i++){ %>
+                  <li><span><%= names[i] %></span></li>
+                  <li><span><%= links[i] %></span></li>
+                  <li><span><%= comments[i] %></span></li>
                 <% } %>
                </ul>
               </div>
