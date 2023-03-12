@@ -4,7 +4,11 @@ let app  = express();
 const port = 3000;
 const {Client} = require("pg");
 
-app.use(express.static('public'));
+// ルーティング処理をしたファイルをモジュールとして読み込む
+const homerouter = require('./router/home');
+const study1router = require('./router/study1');
+const study2router = require('./router/study2');
+const study3router = require('./router/study3');
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}));
@@ -153,6 +157,14 @@ app.post("/createUser",async (req,res)=>{
 		  res.status(500).send("Error");
 	}
   })
+
+app.use(express.static('public'));
+
+// ルーティング処理
+app.use('/', homerouter);
+app.use('/', study1router);
+app.use('/', study2router);
+app.use('/', study3router);
 
 
 app.listen(port, () => {

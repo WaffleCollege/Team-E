@@ -185,10 +185,10 @@
               </p>
 
               <div class="form-link">
-              <form>
+              <form action="" method="POST">
                 <div class="mb-3">
                   <label for="exampleInputName1" class="form-label">Name</label>
-                  <input type="Name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp">
+                  <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="username">
                   <div id="nameHelp" class="form-text"></div>
                 </div>
       
@@ -200,11 +200,11 @@
 
                 <div class="mb-3">
                   <label for="exampleInputUrl1" class="form-label">URL</label>
-                  <input type="url" class="form-control" id="exampleInputUrl1" placeholder="https://example.com">
+                  <input type="url" class="form-control" id="exampleInputUrl1" placeholder="https://example.com" name="link">
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="コメントを追加しよう" rows="3"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="サイトのおすすめポイントなど" rows="3" name="comment"></textarea>
                 </div>
             <!-----
                 <div class="mb-3 form-check">
@@ -218,7 +218,15 @@
               <div class="comment-list">
                <p>Comment</p>
                <ul>
-                  <li></li>
+                <% for(let i = 0; i < names.length; i++){ %>
+                  <div class="balloon-left-parent">
+                    <div class="balloon-left-child">
+                      <li><span>投稿者：<%= names[i] %></span></li>
+                      <li><span>役立ったサイト：<a href="<%= links[i] %>" target="_blank" rel="noopener noreferrer"><%= links[i] %></a></span></li>
+                      <li><span>コメント：<%= comments[i] %></span></li>
+                    </div>
+                  </div>
+                <% } %>
                </ul>
               </div>
             </div>
