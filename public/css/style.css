@@ -124,6 +124,7 @@
 　[home] SIDEBAR-RIGHT
 ---------------------------------*/
 
+
 .sidebar-right {
 	width:350px;
 	box-sizing: border-box;
@@ -131,10 +132,20 @@
 	background-color: #f5f5f5;
 }
 
+/**    calendar     **/
+
+.sidebar-right #cal-heatmap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:30px;
+}
+
+/** pie-chart **/
 
 
 .sidebar-right .list-group{
-	margin-top:200px;
+	margin-top:20px;
 	font-weight: bold;
 	color:#545454;
 }

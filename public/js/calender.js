@@ -1,39 +1,70 @@
-// const cal = new CalHeatMap();
-// const data = {
-//   "1676693425.0": 1,
-//   "1675829425.0": 2,
-// };
-// const config = {
-//   data: data,
-// 	start: new Date(2023, 1),
-// 	id : "graph_k",
-// 	domain : "month",
-// 	subDomain : "x_day",
-// 	range : 1,
-// 	cellSize: 30,
-// 	weekStartOnMonday: 0,
-// };
-// cal.init(config);
+import {auth} from "./firebase.js";
+
+let idToken="";
+
+let user;
+let uid;
+let data = {};
+
+auth.onAuthStateChanged(async (user) =>{
+	if(user){
+		idToken = await user.getIdToken();
+		user = firebase.auth().currentUser;
+		uid = user.uid;
+		await getLoginLog();
+	}else{
+		location.href = "/login";
+	}
+});
 
 
+const getLoginLog = async(req,res) =>{
+	const response = await fetch(`/searchLogin?uid=${uid}`, {
+		method: "GET",
+		headers: {
+		"Content-Type": "application/json",
+		Authorization: `Bearer ${idToken}`,
+		},
+	});
 
-const cal = new CalHeatMap();
-const data = {
-  "1676693425.0": 1,
-  "1675829425.0": 2,
-};
-const config = {
-  domain: "month",
-  subDomain: "x_day",
-  range: 1,
-  tooltip: true,
-  start: new Date(2023, 1),
-  data: data,
-  legend: [0.0, 0.5, 1.0, 1.5],
-  cellSize: 30,
-  subDomainTextFormat: "%d",
-};
-cal.init(config);
+	const responseData = await response.json();
+	// データベースに情報がない場合は何もしない
+	if (responseData.length == 0) {
+		return;
+	}
+
+	data = responseData.reduce((acc, {timestamp}) => {
+		acc[timestamp] = 1;
+		return acc;
+	  }, {});
+	  
+    // CalHeatMapの初期化
+    const cal = new CalHeatMap();
+    
+    const config = {
+      domain: "month",
+      subDomain: "x_day",
+      range: 1,
+      tooltip: true,
+      start: new Date(),
+      data: data,
+      legend: [1.0, 2.0, 3.0],
+      cellSize: 30,
+      subDomainTextFormat: "%d",
+      legendColors: {
+        min: "#ededed",
+        max: "#eb8686",
+        empty:"white",
+        // Will use the CSS for the missing keys
+      }
+    };
+    
+    const container = document.getElementById("cal-heatmap");
+    cal.init(config, container);
+}
+  
+
+
 
 
 

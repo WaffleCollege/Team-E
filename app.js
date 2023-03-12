@@ -1,3 +1,4 @@
+const { Timestamp } = require("@google-cloud/firestore");
 let express = require("express");
 let app  = express();
 const port = 3000;
@@ -35,7 +36,7 @@ require("dotenv").config();
 
 const {verifyIdToken} = require("./firebaseAdmin");
 app.use(verifyIdToken);
-let uid;
+
 
 const client =  new Client({
 	database: process.env.DB_NAME,
@@ -56,22 +57,33 @@ client.connect((err)=>{
 
 app.post("/createUser",async (req,res)=>{
 	try{
-	  uid = req.uid;
+	  const uid = req.uid; //req.body.uidだと上手くいかない
 	  const results = await client.query("SELECT * FROM user_info WHERE uid = $1", [uid]);
-	  if (results.rows.length) {
-		// uidが既に存在する場合の処理
-		res.status(409).send("User already exists"); // 409は"Conflict"というステータスコード
-	  } else {
+	  if (results.rows.length == 0) {
 		const email = req.email;
 		const userName = email.slice(0, email.indexOf('@'));
 		await client.query("INSERT INTO user_info (uid,user_name, user_email) VALUES ($1,$2,$3)", [uid, userName, email]);
 		res.send("User created");
 	  }
+
+	  //Login情報の追加
+	 	// Dateオブジェクトを作成
+		const date = new Date() ;
+
+		// UNIXタイムスタンプを取得する (ミリ秒単位)
+		const a = date.getTime() ;
+
+		// UNIXタイムスタンプを取得する (秒単位 - PHPのtime()と同じ)
+		const timestamp = Math.floor( a / 1000 ) ;
+		console.log( "hi, " + uid);
+		await client.query("INSERT INTO login_log (uid,timestamp) VALUES ($1,$2)", [uid, timestamp]);
+
 	} catch (error) {
 	  console.log(error);
 	  res.status(500).send("Error");
 	}
   });
+
 
   app.get("/searchUser",async (req,res)=>{
 	try{
@@ -81,6 +93,18 @@ app.post("/createUser",async (req,res)=>{
 			(data) => data.uid === uid
 			);
 		res.json(filteredData);
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
+  });
+
+  app.get("/searchLogin",async (req,res)=>{
+	try{
+		const uid = req.query.uid;
+		const responseData = await client.query("SELECT * FROM login_log where uid = $1",[uid]);
+		const data = responseData.rows; // 取得したデータ
+		res.json(data);
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");

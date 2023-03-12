@@ -10,6 +10,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 
+    <!-- Heatmap -->
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+
+     <!-- <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/cal-heatmap/dist/cal-heatmap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/cal-heatmap/dist/cal-heatmap.css"></script>
+     -->
+    
+
     <!-- W3.CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -48,7 +59,7 @@
         <!-- MAIN -->
         <div class="main">
           <div class="content">
-            <img src="/images/Let's get start!.jpg" class="image">
+            <img src="/images/homepage.png" class="image">
                   <div class="roadmap">
                     <div class="step-bar">
                       <div class="step-content1" id="course1">
@@ -78,6 +89,10 @@
         
         <!-- SIDEBAR-RIGHT -->
         <div class="sidebar-right">
+
+          <div id="cal-heatmap"></div>
+          <script type="module" src="/js/calender.js"></script>
+
           <div class="list-group">
             <p>In progress</p>
             <a href="/course-1" class="list-group-item list-group-item-action" aria-current="true">
