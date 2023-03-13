@@ -1,17 +1,27 @@
-const { Timestamp } = require("@google-cloud/firestore");
+// const { Timestamp } = require("@google-cloud/firestore");
+// const { response } = require("express");
 let express = require("express");
 let app  = express();
 const port = 3000;
 const {Client} = require("pg");
 
-// ルーティング処理をしたファイルをモジュールとして読み込む
-const homerouter = require('./router/home');
-const study1router = require('./router/study1');
-const study2router = require('./router/study2');
-const study3router = require('./router/study3');
+app.use(express.static('public'));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}));
+
+/*
+// ルーティング処理をしたファイルをモジュールとして読み込む
+const homerouter = require('./router/home.js');
+const study1router = require('./router/study1');
+const study2router = require('./router/study2');
+const study3router = require('./router/study3');
+// ルーティング処理
+app.use('/', homerouter);
+app.use('/', study1router);
+app.use('/', study2router);
+app.use('/', study3router);
+ */
 
 app.get('/', (req, res) => {
 	res.render('home.ejs');
@@ -48,7 +58,6 @@ const client =  new Client({
 	password: process.env.DB_PASSWORD, //PASSWORDにはPostgreSQLをインストールした際に設定したパスワードを記述。
 	host: process.env.DB_HOST,
 	port: process.env.DB_PORT,
-
 })
 
 client.connect((err)=>{
@@ -92,11 +101,8 @@ app.post("/createUser",async (req,res)=>{
   app.get("/searchUser",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
-		const responseData = await client.query("SELECT * FROM user_info");
-		const filteredData = responseData.rows.filter(
-			(data) => data.uid === uid
-			);
-		res.json(filteredData);
+		const responseData = await client.query("SELECT * FROM user_info where uid = $1",[uid]);
+		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
@@ -107,8 +113,7 @@ app.post("/createUser",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
 		const responseData = await client.query("SELECT * FROM login_log where uid = $1",[uid]);
-		const data = responseData.rows; // 取得したデータ
-		res.json(data);
+		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
@@ -119,11 +124,8 @@ app.post("/createUser",async (req,res)=>{
   app.get("/searchLogbyUid",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
-		  const responseData = await client.query("SELECT * FROM study_log");
-		  const filteredData = responseData.rows.filter(
-			  (data) => data.uid === uid
-			);
-		res.json(filteredData);
+		  const responseData = await client.query("SELECT * FROM study_log where uid = $1",[uid]);
+		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
@@ -134,11 +136,8 @@ app.post("/createUser",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
 		const courseid = req.query.courseid;
-		  const responseData = await client.query("SELECT * FROM study_log");
-		  const filteredData = responseData.rows.filter(
-			  (data) => data.uid === uid && data.courseid===courseid
-			);
-		res.json(filteredData);
+		const responseData = await client.query("SELECT * FROM study_log where uid = $1 AND courseid = $2",[uid,courseid]);
+		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
@@ -158,13 +157,8 @@ app.post("/createUser",async (req,res)=>{
 	}
   })
 
-app.use(express.static('public'));
 
-// ルーティング処理
-app.use('/', homerouter);
-app.use('/', study1router);
-app.use('/', study2router);
-app.use('/', study3router);
+
 
 
 app.listen(port, () => {
