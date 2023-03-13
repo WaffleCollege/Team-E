@@ -27,33 +27,96 @@
 ---------------------------------*/
 
 .sidebar-left {
-	width: 300px;
+	width: 350px;
 	box-sizing: border-box;
 	border-right:2px solid #c1c1c1;
-	background-color: whitesmoke;
-	color:#4072B3;
+	background-color: #f5f5f5;
+}
+/* .sidebar-left img{
+	width:80%;
+	margin: 30px;
+} */
+
+.sidebar-left a{
+	text-decoration: none;
+	color: #4072B3;
 }
 .sidebar-left h1{
 	text-align: center;
 	font-weight:900;
 	margin:50px 0px;
-	font-size:35px;
-	
+	font-size:45px;
+	font-family: 'Montserrat', sans-serif;
 }
 
-.sidebar-left li{
-	list-style: none;
+.sidebar-left h2 {
+	width:200px;
+    position: relative;
+	margin:0 auto;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 3px solid #4072B3;
+    transform: perspective(1000px) rotateX(20deg);
+    box-shadow: 0px 10px 0px #4072B3;
+    background-color: #fff;
+    color: #4072B3;
+    font-weight: bold;
+    font-size: 26px;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar-left h2:before {
+    position: absolute;
+    top: 100%;
+    left: 120px;
+    transform: skew(25deg);
+    height: 35px;
+    width: 15px;
+    border-left: 13px solid #4072B3;
+    background-color: #fff;
+    content: "";
+}
+
+
+.sidebar-left .piggy-bank{
+	width:55px;
+	height:55px;
+	margin: 26px 0px 20px 235px;
+	text-align:right;
+}
+
+.sidebar-left .all_progress{
+	margin: 0px 20px;
+	border:solid 1px #4072B3;
+	border-radius:15%;
+}
+
+.sidebar-left p{
+	font-size:20px;
+	text-align: center;
+	font-weight: bold;
 	margin-top:20px;
+	color:#4072B3;
 }
 
+.sidebar-left .pie{
+	margin:20px auto;
+	width: 150px;
+	height: 150px;
+	font-size:30px;
+	font-weight: bold;
+	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient( #eb8686 0% 0%, #d9d9d9 0% 100%);
+}
 .sidebar-left button{
 	font-size:25px;
 	color:#4072B3;
 	text-align:left;
-	background-color: whitesmoke;
-	padding:10px 30px;
+	background-color: #f5f5f5;
+	padding:10px 20px;
+	margin:30px 0 0 90px;
 	font-weight: 500;
-	border:none;
+	border:solid 1px #4072B3;
 }
 
 
@@ -61,26 +124,12 @@
 　[home] SIDEBAR-RIGHT
 ---------------------------------*/
 
+
 .sidebar-right {
-	width:400px;
+	width:350px;
 	box-sizing: border-box;
 	border-left:2px solid #c1c1c1;
-}
-
-.sidebar-right .account{
-	display:flex;
-	font-weight:500;
-}
-
-.sidebar-right .account p{
-	font-size:25px;
-	margin:45px 0 0 180px;
-}
-
-.sidebar-right i{
-	font-size:60px;
-	margin: 10px 0 0 auto;
-	margin-right:30px;
+	background-color: #f5f5f5;
 }
 
 /**    calendar     **/
@@ -92,8 +141,21 @@
 	margin:30px;
 }
 
+/** pie-chart **/
 
+
+.sidebar-right .list-group{
+	margin-top:20px;
+	font-weight: bold;
+	color:#545454;
+}
+
+.sidebar-right .list-group p{
+	font-size:20px;
+	margin-left:20px;
+}
 /** pie chart **/
+
 .pie {
 	display: flex;
 	justify-content: center;
@@ -103,12 +165,16 @@
 	height: 100px;
 	font-size: 24px;
 	font-weight: 500;
-	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(#d5525f 0% 60%, #d9d9d9 60% 100%);
+	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(#d5525f 0% 0%, #d9d9d9 0% 100%);
 	border-radius: 50%;
+	font-weight: bold;
 }
 
 .sidebar-right .list-group h5{
-	padding:35px;
+	padding-top:30px;
+	font-size:16px;
+	font-weight: 500;
+	font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 /*---------------------------------
@@ -124,7 +190,7 @@
 
 .content {
 	flex-grow: 1;
-	background-color: whitesmoke;
+	background-color: white;
 	box-sizing: border-box;
 }
 
@@ -137,90 +203,47 @@
 	padding-top: 30px;
 }
 
-.main p {
-	margin: 10px 100px 60px 60px;
-}
-
-.content p {
-	font-size: 30px;
-	font-weight: bold;
-	padding-top: 30px;
-	padding-left: 20px;
-	
-}
-
-.content-cardbox {
-	color: white;
-	padding: 10px;
-	height: 300px;
-	flex-wrap: wrap;
-	display: flex;
-	justify-content: space-around;
-	margin: 20px;
-	
-}
-
-.content-titletext {
-	background-color: #EB8686;
-	color: black;
-	width: 270px;
-	height: 160px;
-	padding: 30px;
-	margin: 10px;
-	border-radius: 10px;
-	font-size: 20px;
-    text-align: center;
-}
-
-
-/*---------------------------------
-　[course] ROADMAP
----------------------------------*/
+/*** roadmap ***/
 
 .roadmap{
-	width:1000px;
 	margin-left:50px;
 	font-family: 'Zen Maru Gothic', sans-serif;
 	color:#545454;
 }
 
-.roadmap h1{
-	margin:50px 0 30px 0;
-	font-weight:700;
-	font-size:50px;
-}
 
-/*---------------------------------
-　[course] STEP-BAR
----------------------------------*/
+/*** stepbar ***/
+
 .step-bar {
 	counter-reset:count;
 	margin: 2em 0;
 	position: relative;
+	font-size: 18px;
 }
+
 .step-content1 {
-	padding: 0 0 1.3em 2em;
+	padding: 0 0 2em 3em;
 	margin: 0;
 	position: relative;
 }
-.step-content1::before {
+.step-content1::before{
 	content: "";
 	display: block;
-	width: 13px;
-	height: 13px;
-	background: #4072B3;
+	width: 18px;
+	height: 18px;
+	background: #768888;
 	border: solid 3px #ffffff;
 	border-radius: 50%;
 	position: absolute;
 	top: 3px;
 	left: 3px;
-	box-shadow: 0 0 0 2px #4072B3;
+	box-shadow: 0 0 0 2px #768888;
 }
 .step-content1::after {
 	content: "";
 	display: block;
 	height: calc(100% - 35px);
-	border-left: dotted 5px #768888;
+	border-left: dotted 7px #768888;
 	position: absolute;
 	top: 30px;
 	left: 10px;
@@ -228,7 +251,10 @@
 .step-title1 {
 	font-weight: bold;
 	font-size: 120%;
+	text-decoration: none;
+	color:#545454;
 }
+
 .step-label1 {
 	color: #768888;
 	font-weight: bold;
@@ -242,6 +268,23 @@
 	padding: 0 0 1em;
 	border-bottom: dotted 2px #ddd;
 }
+.step-body1 a{
+	color:#545454;
+}
 .step-wrap1 > :last-of-type::after {
 	display: none;
+}
+
+.step-content1.active::before,
+.step-content1.complete::before{
+	background: #4072B3;
+	box-shadow: 0 0 0 2px #4072B3;
+}
+
+.step-content1.complete::after{
+	border-left:dotted 7px #4072B3;
+}
+
+.step-content1#finish::after{
+	border-left:none;
 }

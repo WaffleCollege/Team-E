@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+
+	<!--My CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/login-style.css">
+    
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+	
+</head>
+<body>
+	<div class="app">
+		<h1>Welcome to moneyvate!</h1>
+		<div id="uid"></div>
+		<div id="firebaseui-auth-container"></div>
+	</div>
+	
+	<!-- Java script-->
+	<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+	<script type="module" src="/js/login.js"></script>
+
+	<!-- firebase CSS-->
+	<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+  </body>
+</html>
