@@ -2,23 +2,20 @@ let express = require("express");
 let app  = express();
 const port = 3000;
 
+// ルーティング処理をしたファイルをモジュールとして読み込む
+const homerouter = require('./router/home');
+const study1router = require('./router/study1');
+const study2router = require('./router/study2');
+const study3router = require('./router/study3');
+
+
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-	res.render('home.ejs');
-});
-app.get('/course', (req, res) => {
-	res.render('course.ejs');
-});
-
-app.get('/study', (req, res) => {
-	res.render('study.ejs');
-});
-
-app.get('/studypage', (req, res) => {
-	res.render('studypage.ejs');
-});
-
+// ルーティング処理
+app.use('/', homerouter);
+app.use('/', study1router);
+app.use('/', study2router);
+app.use('/', study3router);
 
 
 app.listen(port, () => {

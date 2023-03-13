@@ -255,7 +255,34 @@ input [type="checkbox"] {
     margin: 90px 0 40px 0px;
     background-color: rgba(245, 245, 245, 0.895);
     padding-left: 5px;
-    height: 200px;
+    /* height: 200px; */
+}
+
+/* シェアされたコメント表示部分 */
+.balloon-left-parent {
+    width:100%;
+    background:#FFF;
+    padding:0;
+    position:relative;
+  }
+
+  .balloon-left-parent .balloon-left-child {
+    background:#FFF;
+    position:relative;
+    padding:10px 0;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .balloon-left-parent .balloon-left-child::after  {
+    content: ' ';
+    width:0;
+    height: 0;
+    position:absolute;
+    border:10px solid transparent;
+    border-right-color:#FFF;
+    top:25%;
+    right:100%;
 }
 
 
