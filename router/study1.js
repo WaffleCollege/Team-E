@@ -11,7 +11,7 @@ const comments = [];
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.get('/studypage', (req, res) => {
+router.get('/course-1', (req, res) => {
   // console.log(names);
 	res.render('studypage.ejs', {
     names: names, 
@@ -20,7 +20,7 @@ router.get('/studypage', (req, res) => {
   });
 });
 
-router.post("/studypage", (req, res, next) => {
+router.post("/course-1", (req, res, next) => {
   const n = req.body.username;
   const link = req.body.link;
   const msg = req.body.comment;
@@ -28,7 +28,7 @@ router.post("/studypage", (req, res, next) => {
   names.push(n);
   links.push(link);
   comments.push(msg);
-  res.redirect('studypage');
+  res.redirect('course-1');
 });
 
 
