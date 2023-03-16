@@ -35,7 +35,6 @@ const getUsername = async(req,res) =>{
 
 	const name = document.getElementById('name');
 	name.textContent = responseData[0].user_name;
-
 }
 
 

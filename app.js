@@ -10,41 +10,63 @@ app.use(express.static('public'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}));
 
-/*
-// ルーティング処理をしたファイルをモジュールとして読み込む
-const homerouter = require('./router/home.js');
-const study1router = require('./router/study1');
-const study2router = require('./router/study2');
-const study3router = require('./router/study3');
-// ルーティング処理
-app.use('/', homerouter);
-app.use('/', study1router);
-app.use('/', study2router);
-app.use('/', study3router);
- */
+
+// // ルーティング処理をしたファイルをモジュールとして読み込む
+// const homerouter = require('./router/home.js');
+// const study1router = require('./router/study1');
+// const study2router = require('./router/study2');
+// const study3router = require('./router/study3');
+// // ルーティング処理
+// app.use('/', homerouter);
+// app.use('/', study1router);
+// app.use('/', study2router);
+// app.use('/', study3router);
 
 app.get('/', (req, res) => {
 	res.render('home.ejs');
 });
-app.get('/course', (req, res) => {
-	res.render('course.ejs');
-});
-app.get('/study', (req, res) => {
-	res.render('study.ejs');
-});
+// app.get('/course', (req, res) => {
+// 	res.render('course.ejs');
+// });
+// app.get('/study', (req, res) => {
+// 	res.render('study.ejs');
+// });
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
-app.get('/course-1', (req, res) => {
-	res.render('studypage.ejs');
+app.get('/course-1', async (req, res) => {
+	try{
+		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["1"]);
+		const comments = responseData.rows;
+		res.render('studypage.ejs',{comments});
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
 });
 
-app.get('/course-2',(req,res)=>{
-	res.render('course-2.ejs');
-})
-app.get('/course-3-1',(req,res)=>{
-	res.render('course-3-1.ejs');
-})
+app.get('/course-2', async (req, res) => {
+	try{
+		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["2"]);
+		const comments = responseData.rows;
+		res.render('course-2.ejs',{comments});
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
+});
+
+app.get('/course-3-1', async (req, res) => {
+	try{
+		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["3-1"]);
+		const comments = responseData.rows;
+		res.render('course-3-1.ejs',{comments});
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
+});
+
 
 require("dotenv").config();
 
@@ -157,8 +179,20 @@ app.post("/createUser",async (req,res)=>{
 	}
   })
 
-
-
+  app.post("/addComment", async (req,res)=>{
+	try{
+		const uid = req.body.uid;
+		const name =  req.body.username;
+		const url = req.body.url;
+		const comment =req.body.comment;
+		const courseid = req.body.courseid;
+		await client.query("INSERT INTO comment_log (uid,name,url,comment,courseid) VALUES ($1,$2,$3,$4,$5)",[uid,name,url,comment,courseid]);
+		res.send("ok");
+	}catch(error){
+		console.log(error);
+		  res.status(500).send("Error");
+	}
+  })
 
 
 app.listen(port, () => {

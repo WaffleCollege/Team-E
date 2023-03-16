@@ -13,46 +13,46 @@
 //データを保存
 //localStorage.setItem('check', 'checked')
 //console.log(localStorage.getItem('check'))
-const checkboxstyle = document.querySelector("checkbox-style");
-const check1 = document.querySelector("check1");
+// const checkboxstyle = document.querySelector("checkbox-style");
+// const check1 = document.querySelector("check1");
 
 
 
 
 
-//checkboxの保存
-let checkboxElements = document.getElementsByName("check");
-let CEContents = checkboxElements.length;
-let btnElements;
-let btnLoad;
+// //checkboxの保存
+// let checkboxElements = document.getElementsByName("check");
+// let CEContents = checkboxElements.length;
+// let btnElements;
+// let btnLoad;
 
-window.onload = function() {
+// window.onload = function() {
 
-   //チェックボックスの読み込み
-   for (let i = 0; i < CEContents; i++ ) {
-     btnElements = checkboxElements[i];
-     btnLoad = JSON.parse(localStorage.getItem("check_checked" + btnElements));
-     if (btnLoad == true) {
-     btnElements = checkboxElements[i];
-     btnElements.checked = true;
-     }
-   } 
-};
+//    //チェックボックスの読み込み
+//    for (let i = 0; i < CEContents; i++ ) {
+//      btnElements = checkboxElements[i];
+//      btnLoad = JSON.parse(localStorage.getItem("check_checked" + btnElements));
+//      if (btnLoad == true) {
+//      btnElements = checkboxElements[i];
+//      btnElements.checked = true;
+//      }
+//    } 
+// };
 
- //チェックボックスの保存
-function btn() {
-    for (let i = 0; i < CEContents; i++) {
-        btnElements = checkboxElements[i];
-        //コンソールを開いてこの文字列を確認
-        console.log("check_checked" + btnElements);
+//  //チェックボックスの保存
+// function btn() {
+//     for (let i = 0; i < CEContents; i++) {
+//         btnElements = checkboxElements[i];
+//         //コンソールを開いてこの文字列を確認
+//         console.log("check_checked" + btnElements);
 
-        if (btnElements.checked == true) {
-            localStorage.setItem("check_checked" + i, JSON.stringify(true));
-        } else {
-            localStorage.setItem("check_checked" + i, JSON.stringify(false));
-        }
-    }
-}
+//         if (btnElements.checked == true) {
+//             localStorage.setItem("check_checked" + i, JSON.stringify(true));
+//         } else {
+//             localStorage.setItem("check_checked" + i, JSON.stringify(false));
+//         }
+//     }
+// }
 
 
 //これは違う機能

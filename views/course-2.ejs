@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 
-
     <!--My CSS-->
     <link rel="stylesheet" type="text/css" href="/css/studypage.css">
     
@@ -45,7 +44,7 @@
         
         <!-- MAIN -->
         <div class="main">
-            <h1>2</h1>
+            <h1>2. 預貯金</h1>
             <img src="/images/studypage1.jpg" class="image">
           
             <div class="main-contents">
@@ -67,11 +66,10 @@
                 <h4 id="title2">学ぶ必要性</h4>
                 
                 <h4 id="title3">まずはここから！</h4>
-            
+               
 
                 <h4 id="title4">実際にシミュレーションしてみよう</h4>
                 
-            </div>
                 
                 <!--- 
                 <div class="linkcard">
@@ -130,10 +128,10 @@
               </p>
 
               <div class="form-link">
-              <form>
+              <form action="" method="POST" class="form_share">
                 <div class="mb-3">
                   <label for="exampleInputName1" class="form-label">Name</label>
-                  <input type="Name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp">
+                  <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="username">
                   <div id="nameHelp" class="form-text"></div>
                 </div>
       
@@ -145,11 +143,11 @@
 
                 <div class="mb-3">
                   <label for="exampleInputUrl1" class="form-label">URL</label>
-                  <input type="url" class="form-control" id="exampleInputUrl1" placeholder="https://example.com">
+                  <input type="url" class="form-control" id="exampleInputUrl1" placeholder="https://example.com" name="link">
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="コメントを追加しよう" rows="3"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="サイトのおすすめポイントなど" rows="3" name="comment"></textarea>
                 </div>
             <!-----
                 <div class="mb-3 form-check">
@@ -157,14 +155,24 @@
                   <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
             ------>
-                <button type="submit" class="btn btn-primary">Share</button>
+                <button type="submit" class="btn btn-primary" id="share">Share</button>
               </form>
               
               <div class="comment-list">
-               <p>Comment</p>
-               <ul>
-                  <li></li>
-               </ul>
+                <% if (comments.length > 0) { %>
+                  <p>Comment</p>
+                  <ul>
+                    <% for (let i = 0; i < comments.length; i++) { %>
+                      <div class="balloon-left-parent">
+                        <div class="balloon-left-child">
+                          <li><span>投稿者：<%= comments[i].name %></span></li>
+                          <li><span>役に立ったサイト：<a href="<%= comments[i].url %>" target="_blank"><%= comments[i].url %></a></span></li>
+                          <li><span>コメント：<%= comments[i].comment %></span></li>
+                        </div>
+                      </div>
+                    <% } %>
+                  </ul>
+                <% } %>
               </div>
             </div>
             <!--
@@ -228,5 +236,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
   <script type="module" src="/js/course.js"></script>
+  <script type="module" src="/js/logout.js"></script>
 </body>
 </html>
