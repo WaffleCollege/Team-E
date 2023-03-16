@@ -25,12 +25,6 @@ app.use(express.urlencoded({ extended: true}));
 app.get('/', (req, res) => {
 	res.render('home.ejs');
 });
-// app.get('/course', (req, res) => {
-// 	res.render('course.ejs');
-// });
-// app.get('/study', (req, res) => {
-// 	res.render('study.ejs');
-// });
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
