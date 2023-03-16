@@ -13,7 +13,7 @@
 //データを保存
 //localStorage.setItem('check', 'checked')
 //console.log(localStorage.getItem('check'))
-const checkboxstyle = document.querySelector("checkbox-style");
+/*const checkboxstyle = document.querySelector("checkbox-style");
 const check1 = document.querySelector("check1");
 
 
@@ -53,7 +53,7 @@ function btn() {
         }
     }
 }
-
+*/
 
 //これは違う機能
 //function btn() {
@@ -98,3 +98,23 @@ function btn() {
 
 
 
+//back to top button
+window.onload=function(){
+    let Animation = function() {
+    //アイコン位置取得
+    let pageTop =  document.getElementById('page_top');
+    console.log('hhh');
+
+    //要素の位置座標を取得
+    let rect = pageTop.getBoundingClientRect();
+    //topからの距離
+    let scrollTop = rect.top + window.pageYOffset;
+
+    if(scrollTop > 900){
+      pageTop.classList.add('show');
+     }  else {
+      pageTop.classList.remove('show');
+     }
+   }
+   window.addEventListener('scroll', Animation);
+}
