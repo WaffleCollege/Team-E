@@ -218,7 +218,7 @@
               
               <div class="comment-list">
                 <% if (comments.length > 0) { %>
-                  <p>Comment</p>
+                  <p>Comments</p>
                   <ul>
                     <% for (let i = 0; i < comments.length; i++) { %>
                       <div class="balloon-left-parent">
@@ -228,6 +228,9 @@
                           <li><span>コメント：<%= comments[i].comment %></span></li>
                         </div>
                       </div>
+                      <!-- <div class="heart-btn">
+                        <button type="button" class="btn btn-outline-danger" id="heart-icon"><i class="bi bi-heart"></i></button>
+                      </div> -->
                     <% } %>
                   </ul>
                 <% } %>
@@ -286,11 +289,11 @@
               -->
         <!-- // sns-share --> 
         
-        <!-- buck to top button -->
+        <!-- back to top button -->
           <div id="page_top">
             <a href="#"></a>
           </div>
-        <!-- // buck to top button --> 
+        <!-- // back to top button --> 
 
         <!-- // MAIN -->
       </div>

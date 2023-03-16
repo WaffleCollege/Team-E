@@ -4,7 +4,7 @@ window.onload=function(){
     let Animation = function() {
     //アイコン位置取得
     let pageTop =  document.getElementById('page_top');
-    console.log('hhh');
+    // console.log('hhh');
 
     //要素の位置座標を取得
     let rect = pageTop.getBoundingClientRect();
