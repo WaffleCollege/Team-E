@@ -12,16 +12,28 @@ app.use(express.urlencoded({ extended: true}));
 
 /*
 // ルーティング処理をしたファイルをモジュールとして読み込む
-const homerouter = require('./router/home.js');
+const homerouter = require('./router/home.js');*/
 const study1router = require('./router/study1');
+/*
 const study2router = require('./router/study2');
 const study3router = require('./router/study3');
 // ルーティング処理
-app.use('/', homerouter);
+app.use('/', homerouter);*/
 app.use('/', study1router);
+/*
 app.use('/', study2router);
 app.use('/', study3router);
- */
+*/
+/*const bodyParser = require("body-parser");*/
+
+/*
+const names = [];
+const links = [];
+const comments = [];
+*/
+/*app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));*/
+
 
 app.get('/', (req, res) => {
 	res.render('home.ejs');
@@ -35,9 +47,35 @@ app.get('/study', (req, res) => {
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
-app.get('/course-1', (req, res) => {
-	res.render('studypage.ejs');
-});
+/*app.get('/course-1', (req, res) => {
+	res.render('studypage.ejs', {
+	names: names, 
+    links: links, 
+    comments: comments, 
+	});
+});*/
+
+
+
+/*app.get('/studypage', (req, res) => {
+  // console.log(names);
+	res.render('studypage.ejs', {
+    names: names, 
+    links: links, 
+    comments: comments, 
+  });
+});*/
+
+/*app.post('/course-1', (req, res, next) => {
+  const n = req.body.username;
+  const link = req.body.link;
+  const msg = req.body.comment;
+
+  names.push(n);
+  links.push(link);
+  comments.push(msg);
+  res.redirect('course-1');
+});*/
 
 app.get('/course-2',(req,res)=>{
 	res.render('course-2.ejs');
