@@ -67,7 +67,6 @@ require("dotenv").config();
 const {verifyIdToken} = require("./firebaseAdmin");
 app.use(verifyIdToken);
 
-
 const client =  new Client({
 	database: process.env.DB_NAME,
 	user: process.env.DB_USER, //ユーザー名はデフォルト以外を利用した人は適宜変更すること
