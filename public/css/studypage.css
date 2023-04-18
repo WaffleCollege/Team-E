@@ -308,9 +308,9 @@ input [type="checkbox"] {
 }
 
 .comment-list p {
-    
-    margin: 90px 0 40px 0px;
-    background-color: rgba(245, 245, 245, 0.895);
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight:bold;
+    margin: 40px 0;
     padding-left: 5px;
     /* height: 200px; */
 }
@@ -341,6 +341,25 @@ input [type="checkbox"] {
     top:25%;
     right:100%;
 }
+
+/**  いいねボタン    **/
+
+.heart-btn {
+    font-weight: bold;
+    margin: 30px 10px 0 auto;
+  }
+  
+  #heart-icon {
+    display: inline-block;
+    height: 41px;
+    margin-right: 5px;
+    position: relative;
+    border-radius: 100%;
+    
+  }
+  
+
+  
 
 
 /*---------------------------------

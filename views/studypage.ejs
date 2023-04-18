@@ -186,7 +186,7 @@
               </p>
 
               <div class="form-link">
-              <form action="" method="POST">
+              <form action="" method="POST" class="form_share">
                 <div class="mb-3">
                   <label for="exampleInputName1" class="form-label">Name</label>
                   <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="username">
@@ -213,22 +213,27 @@
                   <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
             ------>
-                <button type="submit" class="btn btn-primary">Share</button>
+                <button type="submit" class="btn btn-primary" id="share">Share</button>
               </form>
               
               <div class="comment-list">
-               <p>Comment</p>
-               <ul>
-                <% for(let i = 0; i < names.length; i++){ %>
-                  <div class="balloon-left-parent">
-                    <div class="balloon-left-child">
-                      <li><span>投稿者：<%= names[i] %></span></li>
-                      <li><span>役立ったサイト：<a href="<%= links[i] %>" target="_blank" rel="noopener noreferrer"><%= links[i] %></a></span></li>
-                      <li><span>コメント：<%= comments[i] %></span></li>
-                    </div>
-                  </div>
+                <% if (comments.length > 0) { %>
+                  <p>Comments</p>
+                  <ul>
+                    <% for (let i = 0; i < comments.length; i++) { %>
+                      <div class="balloon-left-parent">
+                        <div class="balloon-left-child">
+                          <li><span>投稿者：<%= comments[i].name %></span></li>
+                          <li><span>役に立ったサイト：<a href="<%= comments[i].url %>" target="_blank"><%= comments[i].url %></a></span></li>
+                          <li><span>コメント：<%= comments[i].comment %></span></li>
+                        </div>
+                      </div>
+                      <!-- <div class="heart-btn">
+                        <button type="button" class="btn btn-outline-danger" id="heart-icon"><i class="bi bi-heart"></i></button>
+                      </div> -->
+                    <% } %>
+                  </ul>
                 <% } %>
-               </ul>
               </div>
             </div>
             <!--
@@ -284,11 +289,11 @@
               -->
         <!-- // sns-share --> 
         
-        <!-- buck to top button -->
+        <!-- back to top button -->
           <div id="page_top">
             <a href="#"></a>
           </div>
-        <!-- // buck to top button --> 
+        <!-- // back to top button --> 
 
         <!-- // MAIN -->
       </div>
@@ -298,6 +303,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
   <script type="module" src="/js/course.js"></script>
-  <script type="text/javascript" src="/js/studypage.js"></script>
+  <script type="module" src="/js/logout.js"></script>
 </body>
 </html>
