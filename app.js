@@ -32,7 +32,7 @@ app.get('/course-1', async (req, res) => {
 	try{
 		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["1"]);
 		const comments = responseData.rows;
-		res.render('studypage.ejs',{comments});
+		res.render('course-1.ejs',{comments});
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
@@ -66,7 +66,6 @@ require("dotenv").config();
 
 const {verifyIdToken} = require("./firebaseAdmin");
 app.use(verifyIdToken);
-
 
 const client =  new Client({
 	database: process.env.DB_NAME,
@@ -104,7 +103,7 @@ app.post("/createUser",async (req,res)=>{
 
 		// UNIXタイムスタンプを取得する (秒単位 - PHPのtime()と同じ)
 		const timestamp = Math.floor( a / 1000 ) ;
-		console.log( "hi, " + uid);
+		console.log("Login success");
 		await client.query("INSERT INTO login_log (uid,timestamp) VALUES ($1,$2)", [uid, timestamp]);
 
 	} catch (error) {
