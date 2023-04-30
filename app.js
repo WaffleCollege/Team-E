@@ -68,11 +68,10 @@ const {verifyIdToken} = require("./firebaseAdmin");
 app.use(verifyIdToken);
 
 const client =  new Client({
-	database: process.env.DB_NAME,
-	user: process.env.DB_USER, //ユーザー名はデフォルト以外を利用した人は適宜変更すること
-	password: process.env.DB_PASSWORD, //PASSWORDにはPostgreSQLをインストールした際に設定したパスワードを記述。
-	host: process.env.DB_HOST,
-	port: process.env.DB_PORT,
+	connectionString: process.env.RENDER_DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 })
 
 client.connect((err)=>{
