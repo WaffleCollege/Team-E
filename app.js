@@ -64,14 +64,11 @@ app.get('/course-3-1', async (req, res) => {
 
 require("dotenv").config();
 
-const {verifyIdToken} = require("./firebaseAdmin");
-app.use(verifyIdToken);
-
 const client =  new Client({
 	connectionString: process.env.RENDER_DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+	ssl: {
+		rejectUnauthorized: false,
+	},
 })
 
 client.connect((err)=>{
@@ -81,6 +78,9 @@ client.connect((err)=>{
 	}
 	console.log("success");
 })	
+
+const {verifyIdToken} = require("./firebaseAdmin");
+app.use(verifyIdToken);
 
 app.post("/createUser",async (req,res)=>{
 	try{
