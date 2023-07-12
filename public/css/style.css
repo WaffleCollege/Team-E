@@ -31,6 +31,7 @@
     width: 100vw;
 	height: 150px;
     background-color: white;
+	font-family: 'Erica One', cursive;
 }
 
 .header a{
@@ -38,14 +39,12 @@
   margin-left: 100px;
   color: #5AC8FA;
   font-size:120px;
-  font-family: 'Erica One', cursive;
   transition: all 0.5s ease;
 }
 
 .header .text {
-	position: absolute;
-	top: 50%;
-	left: 50%;
+	color: #5AC8FA;
+	font-size:80px;
 	transform: translate(-50%, -50%);
 	opacity: 1;
 	transition: all 0.5s ease; /* アニメーションの時間とイージングを調整してください */
