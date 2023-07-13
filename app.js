@@ -28,11 +28,22 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
+//app.get('/course-1', async (req, res) => {
+//	try{
+//		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["1"]);
+//		const comments = responseData.rows;
+//		res.render('course-1.ejs',{comments});
+//	}catch(error){
+//		console.log(error);
+//		res.status(500).send("Error");
+//	}
+//});
+
 app.get('/course-1', async (req, res) => {
 	try{
 		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["1"]);
 		const comments = responseData.rows;
-		res.render('course-1.ejs',{comments});
+		res.render('course-1-①.ejs',{comments});
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
