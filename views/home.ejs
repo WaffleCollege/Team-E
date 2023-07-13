@@ -1,91 +1,97 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-    
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-
-    <!-- Heatmap -->
-    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
-
-     <!-- <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/cal-heatmap/dist/cal-heatmap.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/cal-heatmap/dist/cal-heatmap.css"></script>
-     -->
-    
-
-    <!-- W3.CSS -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <!--My CSS-->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    
-    
-    <!-- Font family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-    
-  </head>
-  <body>
+  <%- include('header') %>
     <div class="app">
       <div class="common">
-        
-        <!-- SIDEBAR-LEFT -->
-        <div class="sidebar-left">
-          <!-- <img src="/images/moneyvate-logo.png" onclick="location.href='/'"> -->
-          <a href="/"><h1>moneyvate</h1></a>
-          <h2>Welcome,<br> <span id="name">User</span>!</h2>
-          <img src="/images/piggy-bank.png" class="piggy-bank">
-          <div class="all_progress">
-            <p>Roadmap Progress</p>
-            <div class="pie" id="all_pie"><span>0%</span></div>
-          </div>
-          <button onclick="location.href='#'" id="logout" type="button" class="btn btn-light  btn-lg" >
-            <i class="bi bi-box-arrow-left"></i>
-            Logout
-          </button> 
-          
-        </div>
-        <!-- // SIDEBAR-LEFT -->
-        
         <!-- MAIN -->
         <div class="main">
-          <div class="content">
-            <img src="/images/homepage.png" class="image">
-                  <div class="roadmap">
-                    <div class="step-bar">
-                      <div class="step-content1" id="course1">
-                        <a href='/course-1' class="step-title1">1. 家計管理・生活設計</a>
-                        <div class="step-body1" style="border-bottom: dotted 2px #ddd;">まずは家計管理から学ぼう！</div>
-                      </div>
-                      <div class="step-content1" id="course2">
-                        <a href='/course-2' class="step-title1"> 2. 預貯金</a>
-                      <div class="step-body1" style="border-bottom: dotted 2px #ddd;">本文</div>
-                    </div>
-                    <div class="step-content1" id="course3">
-                      <a href="#" class="step-title1">3. 株式/債券/投資信託</a>
-                      <div class="step-body1" style="border-bottom: dotted 2px #ddd;">本文<br>
-                        <a href="/course-3-1" >3-1:投資の種類<br></a>
-                        <a href="#" >3-2:株式とは<br></a>
-                        <a href="#" >3-3:はじめてみよう</a>
-                      </div>
-                    </div>
-                      <div class="step-content1" id="finish">
-                      <div class="step-title1">FINISH!🎉</div>
-                    </div>
+          <div class = "in_progress">
+            <h3>In progress</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col">
+                <div class="card h-100">
+                  <a href="#">
+                  <img src="images/homepage.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   </div>
+                  </a>
+                  </div>
+                </div>
+              <div class="col">
+                <div class="card h-100">
+                  <a href="#">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a short card.</p>
+                  </div>
+                  </div>
+                </a>
+                </div>
+              <div class="col">
+                <div class="card h-100">
+                  <a href="#">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                  </div>
+                  </div>
+                  </a>
                 </div>
               </div>
             </div>
-        <!-- // MAIN -->
+            <div class = "all_courses">
+            <h3>All courses</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col">
+                <div class="card h-100">
+                  <a href="#">
+                  <img src="images/homepage.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                  </a>
+                  </div>
+                </div>
+              <div class="col">
+                <div class="card h-100">
+                  <a href="#">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a short card.</p>
+                  </div>
+                  </div>
+                </a>
+                </div>
+              <div class="col">
+                <div class="card h-100">
+                  <a href="#">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                  </div>
+                  </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <a href="#">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    </div>
+                    </a>
+                  </div>
+              </div>
+          </div>       
+          </div>
+        <!-- / MAIN -->
         
         <!-- SIDEBAR-RIGHT -->
         <div class="sidebar-right">
@@ -93,30 +99,13 @@
           <div id="cal-heatmap"></div>
           <script type="module" src="/js/calender.js"></script>
 
-          <div class="list-group">
-            <p>In progress</p>
-            <a href="/course-1" class="list-group-item list-group-item-action" aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">1. 家計管理・生活設計</h5>
-                <div class="pie" id="course1_pie"><span>0%</span></div>
-              </div>
-            </a>
-            <a href="/course-2" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">2. 預貯金</h5>
-                <div class="pie" id="course2_pie"><span>0%</span></div>
-              </div>
-            </a>
-            <a href="/course-3-1" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">3. 株式/債券/投資信託</h5>
-                <div class="pie" id="course3_pie"><span>0%</span></div>
-              </div>
-            </a>
+          <div class="all_progress">
+            <p>Roadmap Progress</p>
+            <div class="pie" id="all_pie"><span>0%</span></div>
           </div>
 
         </div>
-        <!-- // SIDEBAR-RIGHT -->
+        <!-- / SIDEBAR-RIGHT -->
         
         <!-- Firebase Javascript-->
         <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
@@ -124,7 +113,9 @@
         <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
         <script type="module" src="/js/home.js"></script>
         <script type="module" src="/js/logout.js"></script>
-      </div>
+        <script type="module" src="/js/header.js"></script>
+
     </div>
-  </body>
-  </html>
+    </div>
+  <%- include('footer') %>
+ 
