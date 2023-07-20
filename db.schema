@@ -1,0 +1,22 @@
+1. user_info
+
+CREATE TABLE "public"."user_info" (
+    "uid" text NOT NULL,
+    "user_name" text,
+    "user_email" text
+);
+
+2. login_log
+
+CREATE TABLE "public"."login_log" (
+    "uid" text NOT NULL,
+    "timestamp" text
+);
+
+3. study_log
+
+CREATE TABLE "public"."study_log" (
+    "uid" text NOT NULL,
+    "courseid" text,
+    "status" int2
+);

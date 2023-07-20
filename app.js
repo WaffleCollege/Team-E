@@ -65,7 +65,7 @@ app.get('/course-3-1', async (req, res) => {
 require("dotenv").config();
 
 const client =  new Client({
-	connectionString: process.env.RENDER_DATABASE_URL,
+	connectionString: process.env.DATABASE_URL,
 	ssl: {
 		rejectUnauthorized: false,
 	},
