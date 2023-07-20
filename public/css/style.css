@@ -124,6 +124,11 @@
 	margin-bottom:20px;
 }
 
+.main img{
+	height: 200px;
+    object-fit: cover;
+}
+
 .main a{
 	text-decoration: none;
 }
