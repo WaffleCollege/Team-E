@@ -138,7 +138,7 @@ app.post("/createUser",async (req,res)=>{
   app.get("/searchLogbyUid",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
-		  const responseData = await client.query("SELECT * FROM study_log where uid = $1",[uid]);
+		const responseData = await client.query("SELECT timestamp FROM study_log where uid = $1",[uid]);
 		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
