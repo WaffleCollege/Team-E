@@ -18,5 +18,6 @@ CREATE TABLE "public"."login_log" (
 CREATE TABLE "public"."study_log" (
     "uid" text NOT NULL,
     "courseid" text,
-    "status" int2
+    "stepid" text,
+    "timestamp" text
 );
