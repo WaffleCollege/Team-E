@@ -59,7 +59,7 @@ const getStudyStatus = async(req,res) =>{
 	const all_rate = Math.floor(responseData.length / NUM_COURSES * 100);
 	const all_pie = document.getElementById('all_pie');
 	all_pie.textContent = all_rate + '%';
-	all_pie.style.backgroundImage = `radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(#eb8686 ${all_rate}% 0%, #d9d9d9 ${all_rate}% 100%)`;
+	all_pie.style.backgroundImage = `radial-gradient(#ffffff 60%, transparent 61%), conic-gradient(#FF6600 ${all_rate}% 0%, #F9B590 ${all_rate}% 100%)`;
 
 	
   };
