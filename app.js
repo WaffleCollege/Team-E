@@ -25,6 +25,23 @@ app.use(express.urlencoded({ extended: true}));
 app.get('/', (req, res) => {
 	res.render('home.ejs');
 });
+
+app.get('/1', (req, res) => {
+	res.render('course1/course-1-①.ejs');
+});
+app.get('/2', (req, res) => {
+	res.render('course1/course-1-②.ejs');
+});
+app.get('/3', (req, res) => {
+	res.render('course1/course-1-③.ejs');
+});
+app.get('/4', (req, res) => {
+	res.render('course1/course-1-④.ejs');
+});
+app.get('/5', (req, res) => {
+	res.render('course1/course-1-⑤.ejs');
+});
+
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
@@ -76,7 +93,7 @@ app.get('/course-3-1', async (req, res) => {
 require("dotenv").config();
 
 const client =  new Client({
-	connectionString: process.env.RENDER_DATABASE_URL,
+	connectionString: process.env.DATABASE_URL,
 	ssl: {
 		rejectUnauthorized: false,
 	},
