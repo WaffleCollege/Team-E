@@ -3,7 +3,6 @@ import {auth} from "./firebase.js";
 let idToken="";
 const NUM_COURSES = 5;
 
-let user;
 let uid;
 
 auth.onAuthStateChanged(async (user) =>{
@@ -11,8 +10,8 @@ auth.onAuthStateChanged(async (user) =>{
 		idToken = await user.getIdToken();
 		user = firebase.auth().currentUser;
 		uid = user.uid;
-		await getStudyStatus();		
-		await getUsername();
+		await getStudyStatus();
+		await getCourses();
 	}else{
 		location.href = "/login";
 	}
@@ -59,4 +58,14 @@ const getStudyStatus = async(req,res) =>{
 	const all_pie = document.getElementById('all_pie');
 	all_pie.textContent = all_rate + '%';
 	all_pie.style.backgroundImage = `radial-gradient(#ffffff 60%, transparent 61%), conic-gradient(#FF6600 ${all_rate}% 0%, #F9B590 ${all_rate}% 100%)`;
-  };
+};
+
+const getCourses = async(req,res) =>{
+	 await fetch(`/getCourses?uid=${uid}`, {
+		method: "GET",
+		headers: {
+		"Content-Type": "application/json",
+		Authorization: `Bearer ${idToken}`,
+		},
+	});
+}

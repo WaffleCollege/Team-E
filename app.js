@@ -24,10 +24,18 @@ app.use(express.urlencoded({ extended: true}));
 
 app.get('/', async (req, res) => {
 	try{
+		res.render('home.ejs',{"courses":[],"inprogress":[],"latestPaths":[]});
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
+});
+
+app.get('/getCourses', async (req, res) => {
+	try{
+		const uid = req.uid;
 		const courseData = await client.query("SELECT * FROM course_info"); //all courses
 		const courses = courseData.rows;
-
-		//!uidで絞る処理してない
 		const inprogressCourseIdData = await client.query("SELECT courseid,stepid FROM course_status WHERE status = 0 ORDER BY timestamp DESC LIMIT 3"); // get inprogress course ids
 		const inprogressCourseIds = [];
 		const latestPaths = [];
