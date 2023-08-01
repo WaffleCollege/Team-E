@@ -22,8 +22,27 @@ app.use(express.urlencoded({ extended: true}));
 // app.use('/', study2router);
 // app.use('/', study3router);
 
-app.get('/', (req, res) => {
-	res.render('home.ejs');
+app.get('/', async (req, res) => {
+	try{
+		const courseData = await client.query("SELECT * FROM course_info"); //all courses
+		const courses = courseData.rows;
+
+		//!uidで絞る処理してない
+		const inprogressCourseIdData = await client.query("SELECT courseid,stepid FROM course_status WHERE status = 0 ORDER BY timestamp DESC LIMIT 3"); // get inprogress course ids
+		const inprogressCourseIds = [];
+		const latestPaths = [];
+		for(let i = 0; i < inprogressCourseIdData.rows.length; i++){
+			inprogressCourseIds.push(inprogressCourseIdData.rows[i].courseid);
+			latestPaths.push(inprogressCourseIdData.rows[i].stepid);
+		}
+		//array_positionで最新のid順を保持したまま取得
+		const inprogressCourseData = await client.query('SELECT * FROM course_info WHERE id = ANY($1) ORDER BY array_position($1, id)',[inprogressCourseIds]); //!uidで絞る処理 completeは取れたけどinprogressどうとる
+		const inprogress = inprogressCourseData.rows;
+		res.render('home.ejs',{courses,inprogress,latestPaths});
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
 });
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
@@ -93,17 +112,17 @@ app.post("/createUser",async (req,res)=>{
 		res.send("User created");
 	  }
 
-	  //Login情報の追加
-	 	// Dateオブジェクトを作成
-		const date = new Date() ;
+	//   //Login情報の追加
+	//  	// Dateオブジェクトを作成
+	// 	const date = new Date() ;
 
-		// UNIXタイムスタンプを取得する (ミリ秒単位)
-		const a = date.getTime() ;
+	// 	// UNIXタイムスタンプを取得する (ミリ秒単位)
+	// 	const a = date.getTime() ;
 
-		// UNIXタイムスタンプを取得する (秒単位 - PHPのtime()と同じ)
-		const timestamp = Math.floor( a / 1000 ) ;
-		console.log("Login success");
-		await client.query("INSERT INTO login_log (uid,timestamp) VALUES ($1,$2)", [uid, timestamp]);
+	// 	// UNIXタイムスタンプを取得する (秒単位 - PHPのtime()と同じ)
+	// 	const timestamp = Math.floor( a / 1000 ) ;
+	// 	console.log("Login success");
+	// 	await client.query("INSERT INTO login_log (uid,timestamp) VALUES ($1,$2)", [uid, timestamp]);
 
 	} catch (error) {
 	  console.log(error);
@@ -112,7 +131,7 @@ app.post("/createUser",async (req,res)=>{
   });
 
 
-  app.get("/searchUser",async (req,res)=>{
+  app.get("/getUser",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
 		const responseData = await client.query("SELECT * FROM user_info where uid = $1",[uid]);
@@ -123,22 +142,22 @@ app.post("/createUser",async (req,res)=>{
 	}
   });
 
-  app.get("/searchLogin",async (req,res)=>{
+
+  app.get("/getStudyLog",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
-		const responseData = await client.query("SELECT * FROM login_log where uid = $1",[uid]);
+		const responseData = await client.query("SELECT timestamp FROM study_log where uid = $1",[uid]);
 		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
 	}
-  });
+  })
 
-
-  app.get("/searchLogbyUid",async (req,res)=>{
+  app.get("/searchCompleteCourse",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
-		const responseData = await client.query("SELECT timestamp FROM study_log where uid = $1",[uid]);
+		const responseData = await client.query("SELECT courseid FROM course_status where uid = $1 and status = 1",[uid]);
 		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);

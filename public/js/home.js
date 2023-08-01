@@ -20,7 +20,7 @@ auth.onAuthStateChanged(async (user) =>{
 
 
 const getUsername = async(req,res) =>{
-	const response = await fetch(`/searchUser?uid=${uid}`, {
+	const response = await fetch(`/getUser?uid=${uid}`, {
 		method: "GET",
 		headers: {
 		"Content-Type": "application/json",
@@ -40,8 +40,7 @@ const getUsername = async(req,res) =>{
 
 
 const getStudyStatus = async(req,res) =>{
-	// データベースに情報があるかどうかを確認するためのGETリクエスト
-	const response = await fetch(`/searchLogbyUid?uid=${uid}`, {
+	const response = await fetch(`/searchCompleteCourse?uid=${uid}`, {
 		method: "GET",
 		headers: {
 		"Content-Type": "application/json",
@@ -60,6 +59,4 @@ const getStudyStatus = async(req,res) =>{
 	const all_pie = document.getElementById('all_pie');
 	all_pie.textContent = all_rate + '%';
 	all_pie.style.backgroundImage = `radial-gradient(#ffffff 60%, transparent 61%), conic-gradient(#FF6600 ${all_rate}% 0%, #F9B590 ${all_rate}% 100%)`;
-
-	
   };

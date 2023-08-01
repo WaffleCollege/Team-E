@@ -5,90 +5,43 @@
         <div class="main">
           <div class = "in_progress">
             <h3>In progress</h3>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
-                <div class="card h-100">
-                  <a href="#">
-                  <img src="images/home/1 - REBUILD THE ECONOMY.png" class="card-img-top" alt="...">
+            <% if (inprogress.length > 0) { %>
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <% for (let i = 0; i < inprogress.length; i++) { %>
+                <div class="col">
+                 <div class="card h-100">
+                  <a href="<%= latestPaths[i] %>">
+                  <img src= "images/course/<%= inprogress[i].course_picture_path %>" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title"><%= inprogress[i].course_name %></h5>
+                    <p class="card-text"><%= inprogress[i].course_detail %></p>
                   </div>
                   </a>
                   </div>
                 </div>
-              <div class="col">
-                <div class="card h-100">
-                  <a href="#">
-                  <img src="images/home/2 - INCOME INEQUALITY.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a short card.</p>
-                  </div>
-                  </div>
-                </a>
-                </div>
-              <div class="col">
-                <div class="card h-100">
-                  <a href="#">
-                  <img src="images/home/3 - JOB LOOKING.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                  </div>
-                  </div>
-                  </a>
-                </div>
-              </div>
+                <% } %>
+            </div>
+            <% } %>
             </div>
             <div class = "all_courses">
             <h3>All courses</h3>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
-                <div class="card h-100">
-                  <a href="#">
-                  <img src="images/home/4 - BUDGETTING.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                  </a>
-                  </div>
-                </div>
-              <div class="col">
-                <div class="card h-100">
-                  <a href="#">
-                  <img src="images/home/5 - RECRUITING.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a short card.</p>
-                  </div>
-                  </div>
-                </a>
-                </div>
-              <div class="col">
-                <div class="card h-100">
-                  <a href="#">
-                  <img src="images/home/6 - FINANCES.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                  </div>
-                  </div>
-                  </a>
-                </div>
+            <% if (courses.length > 0) { %>
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <% for (let i = 0; i < courses.length; i++) { %>
                 <div class="col">
-                  <div class="card h-100">
-                    <a href="#">
-                    <img src="images/home/7 - BANK DEAL.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    </div>
-                    </a>
+                 <div class="card h-100">
+                  <a href="<%= courses[i].course_path %>">
+                  <img src= "images/course/<%= courses[i].course_picture_path %>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= courses[i].course_name %></h5>
+                    <p class="card-text"><%= courses[i].course_detail %></p>
                   </div>
-              </div>
+                  </a>
+                  </div>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
           </div>       
           </div>
         <!-- / MAIN -->
