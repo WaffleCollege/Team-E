@@ -26,20 +26,36 @@ app.get('/', (req, res) => {
 	res.render('home.ejs');
 });
 
-app.get('/1', (req, res) => {
+app.get('/1/1', (req, res) => {
 	res.render('course1/course-1-①.ejs');
 });
-app.get('/2', (req, res) => {
+app.get('/1/2', (req, res) => {
 	res.render('course1/course-1-②.ejs');
 });
-app.get('/3', (req, res) => {
+app.get('/1/3', (req, res) => {
 	res.render('course1/course-1-③.ejs');
 });
-app.get('/4', (req, res) => {
+app.get('/1/4', (req, res) => {
 	res.render('course1/course-1-④.ejs');
 });
-app.get('/5', (req, res) => {
+app.get('/1/5', (req, res) => {
 	res.render('course1/course-1-⑤.ejs');
+});
+
+app.get('/2/1', (req, res) => {
+	res.render('course2/course-2-①.ejs');
+});
+app.get('/2/2', (req, res) => {
+	res.render('course2/course-2-②.ejs');
+});
+app.get('/2/3', (req, res) => {
+	res.render('course2/course-2-③.ejs');
+});
+app.get('/2/4', (req, res) => {
+	res.render('course2/course-2-④.ejs');
+});
+app.get('/2/5', (req, res) => {
+	res.render('course2/course-2-⑤.ejs');
 });
 
 app.get('/login', (req, res) => {
