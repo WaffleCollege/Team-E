@@ -2,7 +2,6 @@
 window.onload = function () {
     const ul = document.getElementById("c-stepper");
     const li = ul.children;
-    console.log(li);
 
     for (let i = 0; i < li.length; i++) {
         if (li[i].className == "is-current") {
@@ -11,6 +10,6 @@ window.onload = function () {
     }
 
     const path = location.pathname.split("/");
-    const item = document.getElementById("item" + path[1]);
+    const item = document.getElementById("item" + path[2]);
     item.className = "is-current";
 }
