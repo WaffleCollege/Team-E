@@ -1,121 +1,3 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-
-
-.app {
-	width: 100%;
-	display: flex;
-}
-
-/*---------------------------------
-　COMMON
----------------------------------*/
-
-.common {
-	display: flex;
-	flex-direction: row;
-	flex-grow: 1;
-	font-family: 'Zen Maru Gothic', sans-serif;
-	font-family: 'Montserrat', sans-serif;
-}
-
-/*---------------------------------
-　SIDEBAR-LEFT
----------------------------------*/
-
-.sidebar-left {
-	width: 350px;
-	box-sizing: border-box;
-	border-right:2px solid #c1c1c1;
-	background-color: #f5f5f5;
-}
-/* .sidebar-left img{
-	width:80%;
-	margin: 30px;
-} */
-
-.sidebar-left a{
-	text-decoration: none;
-	color: #4072B3;
-}
-.sidebar-left h1{
-	text-align: center;
-	font-weight:900;
-	margin:50px 0px;
-	font-size:45px;
-}
-
-.sidebar-left h2 {
-	width:200px;
-    position: relative;
-	margin:0 auto;
-    padding: 1rem;
-    border-radius: 10px;
-    border: 3px solid #4072B3;
-    transform: perspective(1000px) rotateX(20deg);
-    box-shadow: 0px 10px 0px #4072B3;
-    background-color: #fff;
-    color: #4072B3;
-    font-weight: bold;
-    font-size: 26px;
-	text-align: center;
-}
-
-.sidebar-left h2:before {
-    position: absolute;
-    top: 100%;
-    left: 120px;
-    transform: skew(25deg);
-    height: 35px;
-    width: 15px;
-    border-left: 13px solid #4072B3;
-    background-color: #fff;
-    content: "";
-}
-
-
-.sidebar-left .piggy-bank{
-	width:55px;
-	height:55px;
-	margin: 26px 0px 0px 235px;
-	text-align:right;
-}
-
-.sidebar-left .all_progress{
-	margin: 0px 20px;
-	border:solid 1px #4072B3;
-	border-radius:15%;
-}
-
-.sidebar-left p{
-	font-size:20px;
-	text-align: center;
-	font-weight: bold;
-	margin-top:20px;
-	color:#4072B3;
-}
-
-.sidebar-left .pie{
-	margin:20px auto;
-	width: 150px;
-	height: 150px;
-	font-size:30px;
-	font-weight: bold;
-	background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient( #eb8686 0% 0%, #d9d9d9 0% 100%);
-}
-.sidebar-left button{
-	font-size:25px;
-	color:#4072B3;
-	text-align:left;
-	background-color: #f5f5f5;
-	padding:10px 20px;
-	margin:30px 0 0 90px;
-	font-weight: 500;
-	border:solid 1px #4072B3;
-}
-
 
 /*---------------------------------
 　学習画面
@@ -187,6 +69,10 @@
     font-size: 18px;
     padding: 20px 0 15px 35px;
     font-family: "游ゴシック体","YuGothic";
+    margin-top: 30px;
+}
+
+.guide {
     margin-top: 30px;
 }
 
