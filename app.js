@@ -1,57 +1,48 @@
-// const { Timestamp } = require("@google-cloud/firestore");
-// const { response } = require("express");
-let express = require("express");
-let app  = express();
+import express from "express";
+const app = express();
 const port = 3000;
-const {Client} = require("pg");
+import pg from "pg";
+const { Client } = pg;
 
 app.use(express.static('public'));
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
-// // ルーティング処理をしたファイルをモジュールとして読み込む
-// const homerouter = require('./router/home.js');
-// const study1router = require('./router/study1');
-// const study2router = require('./router/study2');
-// const study3router = require('./router/study3');
-// // ルーティング処理
-// app.use('/', homerouter);
-// app.use('/', study1router);
-// app.use('/', study2router);
-// app.use('/', study3router);
+import {verifyIdToken} from "./firebaseAdmin.js";
+app.use(verifyIdToken);
+
+import { config } from "dotenv"; //環境変数を使うためのモジュール
+config();
+
+const client =  new Client({
+	connectionString: process.env.DATABASE_URL,
+	ssl: {
+		rejectUnauthorized: false,
+	},
+})
+
+client.connect((err)=>{
+	if(err){
+		console.log("error connecting" + err.stack);
+		return;
+	}
+	console.log("success");
+})	
 
 app.get('/', async (req, res) => {
 	try{
-		res.render('home.ejs',{"courses":[],"inprogress":[],"latestPaths":[]});
+		const courseData = await client.query("SELECT * FROM course_info"); //all courses
+		const courses = courseData.rows;
+		res.render('home.ejs',{courses});
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
 	}
 });
 
-app.get('/getCourses', async (req, res) => {
-	try{
-		const uid = req.uid;
-		const courseData = await client.query("SELECT * FROM course_info"); //all courses
-		const courses = courseData.rows;
-		const inprogressCourseIdData = await client.query("SELECT courseid,stepid FROM course_status WHERE status = 0 ORDER BY timestamp DESC LIMIT 3"); // get inprogress course ids
-		const inprogressCourseIds = [];
-		const latestPaths = [];
-		for(let i = 0; i < inprogressCourseIdData.rows.length; i++){
-			inprogressCourseIds.push(inprogressCourseIdData.rows[i].courseid);
-			latestPaths.push(inprogressCourseIdData.rows[i].stepid);
-		}
-		//array_positionで最新のid順を保持したまま取得
-		const inprogressCourseData = await client.query('SELECT * FROM course_info WHERE id = ANY($1) ORDER BY array_position($1, id)',[inprogressCourseIds]); //!uidで絞る処理 completeは取れたけどinprogressどうとる
-		const inprogress = inprogressCourseData.rows;
-		res.render('home.ejs',{courses,inprogress,latestPaths});
-	}catch(error){
-		console.log(error);
-		res.status(500).send("Error");
-	}
-});
+
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
@@ -88,26 +79,24 @@ app.get('/course-3-1', async (req, res) => {
 	}
 });
 
+app.get("/getInprogress",async (req,res)=>{
+	try{
+		const uid = req.uid;
+		const inprogressCourseIdData = await client.query("SELECT courseid,stepid FROM course_status WHERE uid = $1 and status = 0 ORDER BY timestamp DESC LIMIT 3",[uid]);
+		const inprogressCourseIds = [];
+		for(let i = 0; i < inprogressCourseIdData.rows.length; i++){
+			inprogressCourseIds.push(inprogressCourseIdData.rows[i].courseid);
+		}
+		//array_positionで最新のid順を保持したまま取得
+		const inprogressCourseData = await client.query('SELECT * FROM course_info WHERE id = ANY($1) ORDER BY array_position($1, id)',[inprogressCourseIds]); 
+		const inprogress = inprogressCourseData.rows;
+		res.json(inprogress);
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}	
+});
 
-require("dotenv").config();
-
-const client =  new Client({
-	connectionString: process.env.DATABASE_URL,
-	ssl: {
-		rejectUnauthorized: false,
-	},
-})
-
-client.connect((err)=>{
-	if(err){
-		console.log("error connecting" + err.stack);
-		return;
-	}
-	console.log("success");
-})	
-
-const {verifyIdToken} = require("./firebaseAdmin");
-app.use(verifyIdToken);
 
 app.post("/createUser",async (req,res)=>{
 	try{
@@ -164,7 +153,7 @@ app.post("/createUser",async (req,res)=>{
 
   app.get("/searchCompleteCourse",async (req,res)=>{
 	try{
-		const uid = req.query.uid;
+		const uid = req.uid;
 		const responseData = await client.query("SELECT courseid FROM course_status where uid = $1 and status = 1",[uid]);
 		res.json(responseData.rows);
 	}catch(error){
@@ -211,8 +200,7 @@ app.post("/createUser",async (req,res)=>{
 		console.log(error);
 		  res.status(500).send("Error");
 	}
-  })
-
+})
 
 app.listen(port, () => {
 	console.log(`listening at http://localhost:${port}`);
