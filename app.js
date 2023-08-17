@@ -42,15 +42,57 @@ app.get('/', async (req, res) => {
 	}
 });
 
+app.get('/1/1', (req, res) => {
+	res.render('course1/course-1-①.ejs');
+});
+app.get('/1/2', (req, res) => {
+	res.render('course1/course-1-②.ejs');
+});
+app.get('/1/3', (req, res) => {
+	res.render('course1/course-1-③.ejs');
+});
+app.get('/1/4', (req, res) => {
+	res.render('course1/course-1-④.ejs');
+});
+app.get('/1/5', (req, res) => {
+	res.render('course1/course-1-⑤.ejs');
+});
+
+app.get('/2/1', (req, res) => {
+	res.render('course2/course-2-①.ejs');
+});
+app.get('/2/2', (req, res) => {
+	res.render('course2/course-2-②.ejs');
+});
+app.get('/2/3', (req, res) => {
+	res.render('course2/course-2-③.ejs');
+});
+app.get('/2/4', (req, res) => {
+	res.render('course2/course-2-④.ejs');
+});
+app.get('/2/5', (req, res) => {
+	res.render('course2/course-2-⑤.ejs');
+});
 
 app.get('/login', (req, res) => {
 	res.render('login.ejs');
 });
+//app.get('/course-1', async (req, res) => {
+//	try{
+//		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["1"]);
+//		const comments = responseData.rows;
+//		res.render('course-1.ejs',{comments});
+//	}catch(error){
+//		console.log(error);
+//		res.status(500).send("Error");
+//	}
+//});
+
 app.get('/course-1', async (req, res) => {
 	try{
 		const responseData = await client.query("SELECT * FROM comment_log where courseid = $1",["1"]);
 		const comments = responseData.rows;
-		res.render('course-1.ejs',{comments});
+		res.render('course-1-①.ejs',{comments});
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");

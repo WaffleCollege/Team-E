@@ -1,0 +1,33 @@
+<%- include('../header.ejs', {css: "/css/style.css", css2: "/css/studypage.css"}) %>
+
+<%- include('sidebar.ejs') %>
+
+<!-- MAIN -->
+<div class="study-main col-8">
+    <h1>1. 家計管理 & 生活設計</h1>
+    <!-- <img src="/images/studypage1.jpg" class="image"> -->
+  
+
+    <h4 id="title5">学びを確認しよう</h4>
+    <div class="checkbox-style">
+      <input type="checkbox" name="check" id="check1" onclick="btn();" value="1"><label for="check1">家計管理とは何か理解できた</label><br>
+      <input type="checkbox" name="check" id="check2" onclick="btn();" value="2"><label for="check2">生活設計とは何か理解できた</label><br>
+      <input type="checkbox" name="check" id="check3" onclick="btn();" value="3"><label for="check3">家計管理を学ぶ必要性が理解できた</label><br>
+      <input type="checkbox" name="check" id="check4" onclick="btn();" value="4"><label for="check4">生活設計を学ぶ必要性が理解できた</label><br>
+      <input type="checkbox" name="check" id="check5" onclick="btn();" value="5"><label for="check5">記事をチェックすることができた</label><br>
+      <input type="checkbox" name="check" id="check6" onclick="btn();" value="6"><label for="check6">シミュレーションを試してみた</label><br>
+    </div>
+    <button type="button" class="btn btn-outline-primary" id="course_complete">コース完了！</button>
+
+
+    <!-- back to top button -->
+      <div id="page_top">
+        <a href="#"></a>
+      </div>
+    <!-- // back to top button --> 
+
+<!-- // MAIN -->
+</div>
+</div>
+
+<%- include('../footer.ejs') %>
