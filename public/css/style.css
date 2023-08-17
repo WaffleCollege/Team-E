@@ -29,10 +29,10 @@
 
 .header {
 	display: flex;
-    width: 100vw;
+  width: 100vw;
 	height: 150px;
-    background-color: white;
-	font-family: 'Erica One', cursive;
+  background-color: white;
+	font-family: 'Erica One', cursive; 
   z-index: 10;
   position: fixed;
   top: 0;
@@ -78,6 +78,7 @@
 .sidebar-right {
 	width:350px;
 	box-sizing: border-box;
+  padding-top:150px;
 }
 
 /**    calendar     **/
@@ -115,6 +116,7 @@
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+  padding-top:150px;
 }
 
 .main h3{
@@ -125,7 +127,7 @@
 
 .main img{
 	height: 200px;
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .main a{
@@ -271,7 +273,7 @@ img {
     box-sizing: border-box;
   }
 
-.row {
+.row {  /*!相談* row かぶる*/
   padding-top: 200px;
 }
 

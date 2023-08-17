@@ -33,7 +33,7 @@ client.connect((err)=>{
 
 app.get('/', async (req, res) => {
 	try{
-		const courseData = await client.query("SELECT * FROM course_info"); //all courses
+		const courseData = await client.query("SELECT * FROM course_info ORDER BY id"); //all courses
 		const courses = courseData.rows;
 		res.render('home.ejs',{courses});
 	}catch(error){
