@@ -19,7 +19,7 @@ auth.onAuthStateChanged(async (user) =>{
 
 
 const getLoginLog = async(req,res) =>{
-	const response = await fetch(`/searchLogin?uid=${uid}`, {
+	const response = await fetch(`/getStudyLog?uid=${uid}`, {
 		method: "GET",
 		headers: {
 		"Content-Type": "application/json",

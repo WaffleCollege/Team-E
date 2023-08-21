@@ -1,0 +1,34 @@
+1. user_info
+
+CREATE TABLE "public"."user_info" (
+    "uid" text NOT NULL,
+    "user_name" text,
+    "user_email" text
+);
+
+2. study_log
+
+CREATE TABLE "public"."study_log" (
+    "uid" text NOT NULL,
+    "timestamp" text
+);
+
+3. course_info
+
+CREATE TABLE "public"."course_info" (
+    "id" int4 NOT NULL DEFAULT nextval('untitled_table_177_id_seq'::regclass),
+    "course_name" text,
+    "course_detail" text,
+    "course_picture_path" text,
+    "course_path" text
+);
+
+4. course_status
+
+CREATE TABLE "public"."course_status" (
+    "uid" text NOT NULL,
+    "courseid" int4,
+    "stepid" int4,
+    "timestamp" text,
+    "status" int4
+);

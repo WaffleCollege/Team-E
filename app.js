@@ -1,29 +1,45 @@
-// const { Timestamp } = require("@google-cloud/firestore");
-// const { response } = require("express");
-let express = require("express");
-let app  = express();
+import express from "express";
+const app = express();
 const port = 3000;
-const {Client} = require("pg");
+import pg from "pg";
+const { Client } = pg;
 
 app.use(express.static('public'));
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
-// // ルーティング処理をしたファイルをモジュールとして読み込む
-// const homerouter = require('./router/home.js');
-// const study1router = require('./router/study1');
-// const study2router = require('./router/study2');
-// const study3router = require('./router/study3');
-// // ルーティング処理
-// app.use('/', homerouter);
-// app.use('/', study1router);
-// app.use('/', study2router);
-// app.use('/', study3router);
+import {verifyIdToken} from "./firebaseAdmin.js";
+app.use(verifyIdToken);
 
-app.get('/', (req, res) => {
-	res.render('home.ejs');
+import { config } from "dotenv"; //環境変数を使うためのモジュール
+config();
+
+const client =  new Client({
+	connectionString: process.env.DATABASE_URL,
+	ssl: {
+		rejectUnauthorized: false,
+	},
+})
+
+client.connect((err)=>{
+	if(err){
+		console.log("error connecting" + err.stack);
+		return;
+	}
+	console.log("success");
+})	
+
+app.get('/', async (req, res) => {
+	try{
+		const courseData = await client.query("SELECT * FROM course_info ORDER BY id"); //all courses
+		const courses = courseData.rows;
+		res.render('home.ejs',{courses});
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
 });
 
 app.get('/1/1', (req, res) => {
@@ -105,26 +121,24 @@ app.get('/course-3-1', async (req, res) => {
 	}
 });
 
+app.get("/getInprogress",async (req,res)=>{
+	try{
+		const uid = req.uid;
+		const inprogressCourseIdData = await client.query("SELECT courseid,stepid FROM course_status WHERE uid = $1 and status = 0 ORDER BY timestamp DESC LIMIT 3",[uid]);
+		const inprogressCourseIds = [];
+		for(let i = 0; i < inprogressCourseIdData.rows.length; i++){
+			inprogressCourseIds.push(inprogressCourseIdData.rows[i].courseid);
+		}
+		//array_positionで最新のid順を保持したまま取得
+		const inprogressCourseData = await client.query('SELECT * FROM course_info WHERE id = ANY($1) ORDER BY array_position($1, id)',[inprogressCourseIds]); 
+		const inprogress = inprogressCourseData.rows;
+		res.json(inprogress);
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}	
+});
 
-require("dotenv").config();
-
-const client =  new Client({
-	connectionString: process.env.DATABASE_URL,
-	ssl: {
-		rejectUnauthorized: false,
-	},
-})
-
-client.connect((err)=>{
-	if(err){
-		console.log("error connecting" + err.stack);
-		return;
-	}
-	console.log("success");
-})	
-
-const {verifyIdToken} = require("./firebaseAdmin");
-app.use(verifyIdToken);
 
 app.post("/createUser",async (req,res)=>{
 	try{
@@ -137,17 +151,17 @@ app.post("/createUser",async (req,res)=>{
 		res.send("User created");
 	  }
 
-	  //Login情報の追加
-	 	// Dateオブジェクトを作成
-		const date = new Date() ;
+	//   //Login情報の追加
+	//  	// Dateオブジェクトを作成
+	// 	const date = new Date() ;
 
-		// UNIXタイムスタンプを取得する (ミリ秒単位)
-		const a = date.getTime() ;
+	// 	// UNIXタイムスタンプを取得する (ミリ秒単位)
+	// 	const a = date.getTime() ;
 
-		// UNIXタイムスタンプを取得する (秒単位 - PHPのtime()と同じ)
-		const timestamp = Math.floor( a / 1000 ) ;
-		console.log("Login success");
-		await client.query("INSERT INTO login_log (uid,timestamp) VALUES ($1,$2)", [uid, timestamp]);
+	// 	// UNIXタイムスタンプを取得する (秒単位 - PHPのtime()と同じ)
+	// 	const timestamp = Math.floor( a / 1000 ) ;
+	// 	console.log("Login success");
+	// 	await client.query("INSERT INTO login_log (uid,timestamp) VALUES ($1,$2)", [uid, timestamp]);
 
 	} catch (error) {
 	  console.log(error);
@@ -156,7 +170,7 @@ app.post("/createUser",async (req,res)=>{
   });
 
 
-  app.get("/searchUser",async (req,res)=>{
+  app.get("/getUser",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
 		const responseData = await client.query("SELECT * FROM user_info where uid = $1",[uid]);
@@ -167,22 +181,22 @@ app.post("/createUser",async (req,res)=>{
 	}
   });
 
-  app.get("/searchLogin",async (req,res)=>{
+
+  app.get("/getStudyLog",async (req,res)=>{
 	try{
 		const uid = req.query.uid;
-		const responseData = await client.query("SELECT * FROM login_log where uid = $1",[uid]);
+		const responseData = await client.query("SELECT timestamp FROM study_log where uid = $1",[uid]);
 		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
 		res.status(500).send("Error");
 	}
-  });
+  })
 
-
-  app.get("/searchLogbyUid",async (req,res)=>{
+  app.get("/searchCompleteCourse",async (req,res)=>{
 	try{
-		const uid = req.query.uid;
-		  const responseData = await client.query("SELECT * FROM study_log where uid = $1",[uid]);
+		const uid = req.uid;
+		const responseData = await client.query("SELECT courseid FROM course_status where uid = $1 and status = 1",[uid]);
 		res.json(responseData.rows);
 	}catch(error){
 		console.log(error);
@@ -228,8 +242,7 @@ app.post("/createUser",async (req,res)=>{
 		console.log(error);
 		  res.status(500).send("Error");
 	}
-  })
-
+})
 
 app.listen(port, () => {
 	console.log(`listening at http://localhost:${port}`);
