@@ -95,7 +95,7 @@ function generateHtmlContent(inprogressData) {
 
 
 const getStudyStatus = async(req,res) =>{
-	const response = await fetch(`/searchCompleteCourse`, {
+	const response = await fetch(`/getCompleteCourse`, {
 		method: "GET",
 		headers: {
 		"Content-Type": "application/json",

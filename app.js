@@ -171,6 +171,17 @@ app.post("/createUser",async (req,res)=>{
 	}
   });
 
+  app.post("/addStudyLog",async (req,res)=>{
+	try{
+		const uid = req.uid;
+		const timestamp = req.body.timestamp;
+		const responseData = await client.query("INSERT INTO study_log (uid,timestamp) VALUES ($1,$2)",[uid,timestamp]);
+		res.send("ok");
+	}catch(error){
+		console.log(error);
+		res.status(500).send("Error");
+	}
+   })
 
   app.get("/getStudyLog",async (req,res)=>{
 	try{
@@ -183,7 +194,7 @@ app.post("/createUser",async (req,res)=>{
 	}
   })
 
-  app.get("/searchCompleteCourse",async (req,res)=>{
+  app.get("/getCompleteCourse",async (req,res)=>{
 	try{
 		const uid = req.uid;
 		const responseData = await client.query("SELECT courseid FROM course_status where uid = $1 and status = 1",[uid]);

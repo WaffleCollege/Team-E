@@ -45,6 +45,16 @@ const updateCourseStatus = async(courseid, stepid, status) =>{
 		},
 		body:JSON.stringify({courseid:courseid,stepid:stepid,timestamp:timestamp,status:status})
 	});
+
+	//study log(カレンダー用)に追加
+	const response2 = await fetch(`/addStudyLog`, {
+		method: "POST",
+		headers: {
+		"Content-Type": "application/json",
+		Authorization: `Bearer ${idToken}`,
+		},
+		body:JSON.stringify({timestamp:timestamp})
+	});
 };
 
 
