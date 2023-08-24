@@ -142,26 +142,16 @@ app.get("/getInprogress",async (req,res)=>{
 
 app.post("/createUser",async (req,res)=>{
 	try{
-	  const uid = req.uid; //req.body.uidだと上手くいかない
+	  const uid = req.uid;
 	  const results = await client.query("SELECT * FROM user_info WHERE uid = $1", [uid]);
 	  if (results.rows.length == 0) {
 		const email = req.email;
 		const userName = email.slice(0, email.indexOf('@'));
 		await client.query("INSERT INTO user_info (uid,user_name, user_email) VALUES ($1,$2,$3)", [uid, userName, email]);
 		res.send("User created");
+	  }else{
+		res.send("User already exists");
 	  }
-
-	//   //Login情報の追加
-	//  	// Dateオブジェクトを作成
-	// 	const date = new Date() ;
-
-	// 	// UNIXタイムスタンプを取得する (ミリ秒単位)
-	// 	const a = date.getTime() ;
-
-	// 	// UNIXタイムスタンプを取得する (秒単位 - PHPのtime()と同じ)
-	// 	const timestamp = Math.floor( a / 1000 ) ;
-	// 	console.log("Login success");
-	// 	await client.query("INSERT INTO login_log (uid,timestamp) VALUES ($1,$2)", [uid, timestamp]);
 
 	} catch (error) {
 	  console.log(error);
@@ -204,45 +194,27 @@ app.post("/createUser",async (req,res)=>{
 	}
   })
 
-  app.get("/searchLogbyUid&Course",async (req,res)=>{
+  app.post("/updateCourseStatus", async (req,res)=>{
 	try{
-		const uid = req.query.uid;
-		const courseid = req.query.courseid;
-		const responseData = await client.query("SELECT * FROM study_log where uid = $1 AND courseid = $2",[uid,courseid]);
-		res.json(responseData.rows);
-	}catch(error){
-		console.log(error);
-		res.status(500).send("Error");
-	}
-  })
-
-  app.post("/createLog", async (req,res)=>{
-	try{
-		const uid = req.body.uid;
-		const status =  req.body.status;
+		const uid = req.uid;
 		const courseid = req.body.courseid;
-		await client.query("INSERT INTO study_log (uid,courseid,status) VALUES ($1,$2,$3)",[uid,courseid,status]);
+		const stepid = req.body.stepid;
+		const timestamp = req.body.timestamp;
+		const status = req.body.status;
+		const responseData = await client.query("SELECT * FROM course_status where uid = $1 AND courseid = $2",[uid,courseid]);
+		//データベースに既に情報がある場合は、更新
+		if(responseData.rows.length > 0){
+			await client.query("UPDATE course_status SET stepid = $1, timestamp = $2, status = $3 WHERE uid = $4 AND courseid = $5",[stepid,timestamp,status,uid,courseid]);
+		//ない場合は新規作成
+		}else{
+			await client.query("INSERT INTO course_status (uid,courseid,stepid,timestamp,status) VALUES ($1,$2,$3,$4,$5)",[uid,courseid,stepid,timestamp,status]);
+		}
 		res.send("ok");
 	}catch(error){
 		console.log(error);
 		  res.status(500).send("Error");
 	}
   })
-
-  app.post("/addComment", async (req,res)=>{
-	try{
-		const uid = req.body.uid;
-		const name =  req.body.username;
-		const url = req.body.url;
-		const comment =req.body.comment;
-		const courseid = req.body.courseid;
-		await client.query("INSERT INTO comment_log (uid,name,url,comment,courseid) VALUES ($1,$2,$3,$4,$5)",[uid,name,url,comment,courseid]);
-		res.send("ok");
-	}catch(error){
-		console.log(error);
-		  res.status(500).send("Error");
-	}
-})
 
 app.listen(port, () => {
 	console.log(`listening at http://localhost:${port}`);
